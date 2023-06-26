@@ -1,8 +1,9 @@
-const initialGames = [
+export const initialGames = [
   {
     id: 1,
     title: "God of War",
-    imgpath: "",
+    imgpath:
+      "https://image.api.playstation.com/vulcan/img/rnd/202010/2217/LsaRVLF2IU2L1FNtu9d3MKLq.jpg",
     release: "20.04.2018",
     publisher: "Sony",
     developer: "Santa Monica Studio",
