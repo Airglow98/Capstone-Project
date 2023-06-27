@@ -1,14 +1,6 @@
 import styled from "styled-components";
 
-export default function MainHeader() {
-  return (
-    <>
-      <StyledMainHeader>Games</StyledMainHeader>
-    </>
-  );
-}
-
-const StyledMainHeader = styled.h1`
+export const StyledHeader = styled.h2`
   border: 5px solid black;
   background-color: purple;
   display: flex;
@@ -19,4 +11,5 @@ const StyledMainHeader = styled.h1`
   margin-top: 0;
   width: 100vw;
   height: 10vh;
+  flex-wrap: center;
 `;

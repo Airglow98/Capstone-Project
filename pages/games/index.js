@@ -1,9 +1,11 @@
-import Homepage from "../../components/Homepage/index";
+import Header from "../../components/Header/index";
+import Gamecard from "../../components/Gamecard/index";
 
-export default function HomePage() {
+export default function Homepage() {
   return (
     <>
-      <Homepage />
+      <Header />
+      <Gamecard />
     </>
   );
 }
