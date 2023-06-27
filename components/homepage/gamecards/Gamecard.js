@@ -18,7 +18,7 @@ export default function Gamecard() {
 
 const StyledGameCard = styled.li`
 text-align: center;
-  color: green;
+  color: lightgreen;
   border: 5px solid black;
   margin-bottom: 5vh;
   margin-right: 10vw;
