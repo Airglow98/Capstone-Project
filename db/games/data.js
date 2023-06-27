@@ -3,7 +3,7 @@ export const initialGames = [
     id: 1,
     title: "God of War",
     imgpath:
-      "https://image.api.playstation.com/vulcan/img/rnd/202010/2217/LsaRVLF2IU2L1FNtu9d3MKLq.jpg",
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "20.04.2018",
     publisher: "Sony",
     developer: "Santa Monica Studio",
@@ -17,7 +17,8 @@ export const initialGames = [
   {
     id: 2,
     title: "The Legend of Zelda: Breath of the Wild",
-    imgpath: "",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "03.03.2017",
     publisher: "Nintendo",
     developer: "Nintendo",
@@ -31,7 +32,8 @@ export const initialGames = [
   {
     id: 3,
     title: "Red Dead Redemption 2",
-    imgpath: "",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "26.10.2018",
     publisher: "Rockstar Games",
     developer: "Rockstar Games",
@@ -45,7 +47,8 @@ export const initialGames = [
   {
     id: 4,
     title: "The Witcher 3: Wild Hunt",
-    imgpath: "",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "19.05.2015",
     publisher: "CD Projekt",
     developer: "CD Projekt RED",
@@ -59,7 +62,8 @@ export const initialGames = [
   {
     id: 5,
     title: "Minecraft",
-    imgpath: "",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "18.11.2011",
     publisher: "Mojang Studios, Microsoft Studios",
     developer: "Mojang Studios",
@@ -73,7 +77,8 @@ export const initialGames = [
   {
     id: 6,
     title: "Overwatch",
-    imgpath: "",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "24.05.2016",
     publisher: "Blizzard Entertainment",
     developer: "Blizzard Entertainment",
@@ -87,7 +92,8 @@ export const initialGames = [
   {
     id: 7,
     title: "Super Mario Odyssey",
-    imgpath: "",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "27.10.2017",
     publisher: "Nintendo",
     developer: "Nintendo",
@@ -101,7 +107,8 @@ export const initialGames = [
   {
     id: 8,
     title: "Assassin's Creed Valhalla",
-    imgpath: "",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "10.11.2020",
     publisher: "Ubisoft",
     developer: "Ubisoft Montreal",
@@ -115,7 +122,8 @@ export const initialGames = [
   {
     id: 9,
     title: "Cyberpunk 2077",
-    imgpath: "",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "10.12.2020",
     publisher: "CD Projekt",
     developer: "CD Projekt RED",
@@ -129,7 +137,8 @@ export const initialGames = [
   {
     id: 10,
     title: "Animal Crossing: New Horizons",
-    imgpath: "",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "20.03.2020",
     publisher: "Nintendo",
     developer: "Nintendo",
