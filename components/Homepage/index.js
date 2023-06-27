@@ -1,5 +1,5 @@
-import MainHeader from "./header/MainHeader";
-import Gamecard from "./gamecards/gamecard";
+import MainHeader from "../MainHeader/index";
+import Gamecard from "../Gamecard/index";
 
 export default function Homepage() {
   return (

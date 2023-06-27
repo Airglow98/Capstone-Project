@@ -4,6 +4,9 @@ const nextConfig = {
     styledComponents: true,
   },
   reactStrictMode: true,
+  images: {
+    domains: ["fs-prod-cdn.nintendo-europe.com"],
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -15,8 +18,4 @@ const nextConfig = {
   },
 };
 
-module.exports = {
-  images: {
-    domains: ["fs-prod-cdn.nintendo-europe.com"],
-  },
-};
+module.exports = nextConfig;
