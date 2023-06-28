@@ -13,6 +13,7 @@ export const initialGames = [
     crossplay: "No",
     category: "Action",
     metacritic: "94/100",
+    achievements: "37",
   },
   {
     id: 2,
@@ -28,6 +29,7 @@ export const initialGames = [
     crossplay: "No",
     category: "Action-Adventure",
     metacritic: "97/100",
+    achievements: "-",
   },
   {
     id: 3,
@@ -43,6 +45,7 @@ export const initialGames = [
     crossplay: "No",
     category: "Action-Adventure",
     metacritic: "97/100",
+    achievements: "51",
   },
   {
     id: 4,
@@ -58,6 +61,7 @@ export const initialGames = [
     crossplay: "No",
     category: "Action-Rollenspiel",
     metacritic: "93/100",
+    achievements: "78",
   },
   {
     id: 5,
@@ -73,6 +77,7 @@ export const initialGames = [
     crossplay: "Yes",
     category: "Sandbox, Abenteuer",
     metacritic: "93/100",
+    achievements: "127",
   },
   {
     id: 6,
@@ -88,6 +93,7 @@ export const initialGames = [
     crossplay: "Ja (zwischen Konsolen und PC)",
     category: "First-Person-Shooter",
     metacritic: "91/100",
+    achievements: "139",
   },
   {
     id: 7,
@@ -103,6 +109,7 @@ export const initialGames = [
     crossplay: "No",
     category: "Jump 'n' Run",
     metacritic: "97/100",
+    achievements: "-",
   },
   {
     id: 8,
@@ -118,6 +125,7 @@ export const initialGames = [
     crossplay: "No",
     category: "Action-Adventure",
     metacritic: "83/100",
+    achievements: "51",
   },
   {
     id: 9,
@@ -133,6 +141,7 @@ export const initialGames = [
     crossplay: "No",
     category: "Action-Rollenspiel",
     metacritic: "59/100",
+    achievements: "44",
   },
   {
     id: 10,
@@ -148,5 +157,6 @@ export const initialGames = [
     crossplay: "No",
     category: "Lebenssimulation",
     metacritic: "90/100",
+    achievements: "-",
   },
 ];

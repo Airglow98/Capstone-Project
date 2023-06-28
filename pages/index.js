@@ -1,9 +1,9 @@
-import Homepage from "../components/Homepage/index";
+import Link from "next/link";
 
-export default function HomePage() {
+export default function Spotlight() {
   return (
-    <>
-      <Homepage />
-    </>
+    <Link href={`/games`}>
+      <p>Ich bin ein Link</p>
+    </Link>
   );
 }
