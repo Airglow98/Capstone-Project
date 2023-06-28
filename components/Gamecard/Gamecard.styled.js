@@ -8,9 +8,6 @@ export const StyledGameCard = styled.li`
   margin-bottom: 5vh;
   margin-right: 10vw;
   list-style: none;
-  &:first-child {
-    margin-top: 15vh;
-  }
 `;
 
 export const StyledImage = styled(Image)`
