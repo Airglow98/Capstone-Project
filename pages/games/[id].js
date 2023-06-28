@@ -2,9 +2,9 @@ import { useRouter } from "next/router";
 import { initialGames } from "@/db/games/data";
 import { StyledHeader } from "@/components/Header/Header.styled";
 import { StyledImage } from "@/components/Gamecard/Gamecard.styled";
-import { StyledDiv } from "./games.styled";
 import BackwardButton from "@/components/BackwardButton";
 import GameInformation from "@/components/GameInformation";
+import styled from "styled-components";
 
 export default function GameDetailPage() {
   const router = useRouter();
@@ -36,3 +36,7 @@ export default function GameDetailPage() {
     </>
   );
 }
+
+const StyledDiv = styled.div`
+  margin-top: 15vh;
+`;
