@@ -3,6 +3,7 @@ import Gamecard from "../../components/Gamecard/index";
 import styled from "styled-components";
 import { initialGames } from "../../db/games/data";
 import { useState } from "react";
+import NavBar from "@/components/NavBar";
 
 export default function Homepage() {
   const [games, setGames] = useState(initialGames);
@@ -23,7 +24,7 @@ export default function Homepage() {
 
   return (
     <>
-      <Header />
+      <Header HeaderText={"Games"} />
       <StyledForm>
         <label htmlFor="searchbar"></label>
         <StyledInput
@@ -43,11 +44,12 @@ export default function Homepage() {
       </StyledForm>
       {gamesNotFound && <p>This game could not be found.</p>}
       <Gamecard games={games} />
+      <NavBar />
     </>
   );
 }
 
-const StyledForm = styled.form`
+export const StyledForm = styled.form`
   margin-top: 15vh;
   margin-left: 10vw;
   margin-bottom: 5vh;

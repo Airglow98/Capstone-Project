@@ -1,9 +1,9 @@
 import { StyledHeader } from "./Header.styled";
 
-export default function Header() {
+export default function Header({ HeaderText }) {
   return (
     <>
-      <StyledHeader>Games</StyledHeader>
+      <StyledHeader>{HeaderText}</StyledHeader>
     </>
   );
 }
