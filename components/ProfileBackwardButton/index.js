@@ -4,15 +4,19 @@ import styled from "styled-components";
 export default function ProfileBackwardButton() {
   return (
     <>
-      <StyledBackwardButtonDiv>
-        <Link href={"/profile"}>
-          <p>&larr;</p>
-        </Link>
-      </StyledBackwardButtonDiv>
+      <StyledLink href={"/profile"}>
+        <StyledParagraph>&larr;</StyledParagraph>
+      </StyledLink>
     </>
   );
 }
 
-const StyledBackwardButtonDiv = styled.div`
-  z-index: 3;
+const StyledParagraph = styled.p`
+  color: black;
+  border: black solid 3px;
+  border-radius: 50%;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
 `;
