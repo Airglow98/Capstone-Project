@@ -23,7 +23,7 @@ export default function Homepage() {
 
   return (
     <>
-      <Header />
+      <Header HeaderText={"Games"} />
       <StyledForm>
         <label htmlFor="searchbar"></label>
         <StyledInput
@@ -47,7 +47,7 @@ export default function Homepage() {
   );
 }
 
-const StyledForm = styled.form`
+export const StyledForm = styled.form`
   margin-top: 15vh;
   margin-left: 10vw;
   margin-bottom: 5vh;

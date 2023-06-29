@@ -37,6 +37,6 @@ export default function GameDetailPage() {
   );
 }
 
-const StyledDiv = styled.div`
+export const StyledDiv = styled.div`
   margin-top: 15vh;
 `;
