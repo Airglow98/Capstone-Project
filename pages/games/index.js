@@ -6,6 +6,7 @@ import { useState } from "react";
 
 export default function Homepage() {
   const [games, setGames] = useState(initialGames);
+  const [gamesNotFound, setGamesNotFound] = useState();
   function handleOnChange(event) {
     const formData = new FormData(event.target.form);
     const data = Object.fromEntries(formData);
@@ -13,6 +14,11 @@ export default function Homepage() {
       game.title.toLowerCase().includes(data.searchbar.toLowerCase())
     );
     setGames(filteredGames);
+    if (filteredGames.length === 0) {
+      setGamesNotFound(true);
+    } else {
+      setGamesNotFound(false);
+    }
   }
 
   return (
@@ -35,6 +41,7 @@ export default function Homepage() {
           <path d="M9.5 4a6.5 6.5 0 0 1 6.5 6.5c0 1.62-.59 3.1-1.57 4.23l5.65 5.65-.71.71-5.65-5.65A6.469 6.469 0 0 1 9.5 17a6.5 6.5 0 1 1 0-13m0 1C6.46 5 4 7.46 4 10.5S6.46 16 9.5 16s5.5-2.46 5.5-5.5S12.54 5 9.5 5Z" />
         </StyledSvg>
       </StyledForm>
+      {gamesNotFound && <p>This game could not be found.</p>}
       <Gamecard games={games} />
     </>
   );
