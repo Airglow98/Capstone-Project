@@ -12,4 +12,5 @@ export const StyledHeader = styled.h2`
   width: 100vw;
   height: 10vh;
   flex-wrap: center;
+  z-index: 1;
 `;
