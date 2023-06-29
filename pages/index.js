@@ -1,9 +1,14 @@
-import Link from "next/link";
+import Header from "@/components/Header";
+import NavBar from "@/components/NavBar";
+import { StyledDiv } from "./games/[id]";
 
 export default function Spotlight() {
   return (
-    <Link href={`/games`}>
-      <p>Ich bin ein Link</p>
-    </Link>
+    <>
+      <Header HeaderText={"Spotlight"} />
+      <StyledDiv />
+      <p>Please choose one of the buttons at the bottom.</p>
+      <NavBar />
+    </>
   );
 }
