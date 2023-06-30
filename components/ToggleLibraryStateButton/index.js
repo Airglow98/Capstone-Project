@@ -1,8 +1,8 @@
-export default function ToggleLibraryStateButton(){
+export default function ToggleLibraryStateButton({ onClick }){
 
     return(
         <>
-        <button>Library</button>
+        <button onClick={onClick}>Library</button>
         </>
     )
 }
