@@ -1,11 +1,11 @@
 import Header from "@/components/Header";
 import Image from "next/image";
-import GamesButton from "@/components/LibraryButton";
 import WishlistButton from "../../components/WishlistButton/index"
 import { StyledForm } from "../games";
 import { useState } from "react";
 import styled from "styled-components";
 import NavBar from "@/components/NavBar";
+import LibraryButton from "@/components/LibraryButton";
 
 
 export default function ProfilePage(){
@@ -34,8 +34,11 @@ reader.readAsDataURL(event.target.files[0]);
         <p>Perfect Games: 57(hardcoded)</p>
         <p>Achievements: 787(hardcoded)</p>
         <p>Wishlist: 77(hardcoded)</p>
-        <GamesButton/>
+
+        <StyledDiv>
+        <LibraryButton/>
         <WishlistButton/>
+        </StyledDiv>
         <NavBar />
         </>
     )
@@ -68,4 +71,9 @@ const StyledInput = styled.input`
 const StyledLabel = styled.label`
 border:black inset 2px;
 background-color: lightgrey;
+`
+
+const StyledDiv = styled.div`
+display: flex;
+justify-content: space-around;
 `

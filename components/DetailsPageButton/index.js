@@ -1,10 +1,11 @@
 import Link from "next/link"
+import { StyledButton } from "./DetailsPageButton.styled"
 
 export default function DetailsPageButton({game}){
     return(
     <>
-    <Link href={`/games/${game.id}`}>
-    <button>Detailspage</button>
-    </Link>
+   
+    <StyledButton> <Link href={`/games/${game.id}`}>More Details</Link></StyledButton>
+   
     </>)
 }

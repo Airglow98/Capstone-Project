@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.h2`
   border: 5px solid black;
-  background-color: purple;
+  background-color: #da8311;
   display: flex;
   align-items: center;
   justify-content: center;

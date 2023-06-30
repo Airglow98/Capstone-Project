@@ -4,6 +4,7 @@ import Link from "next/link";
 import ToggleLibraryStateButton from "../ToggleLibraryStateButton";
 import ToggleWishlistStateButton from "../ToggleWishlistStateButton";
 import DetailsPageButton from "../DetailsPageButton";
+import { StyledDiv } from "./Gamecard.styled";
 
 export default function Gamecard({
   games,
@@ -24,18 +25,17 @@ export default function Gamecard({
                 height={100}
               />
             </Link>
-            <DetailsPageButton game={game} />
-
-            <ToggleLibraryStateButton
-              isLibrary={game.isLibrary}
-              onClick={() => onToggleLibraryClick(game.id)}
-              /*   gameId={game.id} */
-            />
-
-            <ToggleWishlistStateButton
-              isWishlist={game.isWishlist}
-              onClick={() => onToggleWishlistClick(game.id)}
-            />
+            <StyledDiv>
+              <DetailsPageButton game={game} />
+              <ToggleLibraryStateButton
+                isLibrary={game.isLibrary}
+                onClick={() => onToggleLibraryClick(game.id)}
+              />
+              <ToggleWishlistStateButton
+                isWishlist={game.isWishlist}
+                onClick={() => onToggleWishlistClick(game.id)}
+              />
+            </StyledDiv>
           </StyledGameCard>
         ))}
       </ul>

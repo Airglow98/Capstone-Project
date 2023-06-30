@@ -5,5 +5,8 @@ export default function ToggleLibraryStateButton({ onClick, isLibrary }){
 }
 
 const StyledToggleLibraryStateButton = styled.button`
-  background-color: ${(props) => props.isLibrary ? "green" : "red"};
+  background-color: ${(props) => props.isLibrary ? "green" : "white"};
+  height: 5vh;
+  width: 25%;
+  border-radius: 25%;
 `;
