@@ -1,8 +1,9 @@
-export default function ToggleLibraryStateButton({ onClick }){
+import styled from "styled-components";
 
-    return(
-        <>
-        <button onClick={onClick}>Library</button>
-        </>
-    )
+export default function ToggleLibraryStateButton({ onClick, isLibrary }){
+    return <StyledToggleLibraryStateButton isLibrary={isLibrary} onClick={onClick}>Library</StyledToggleLibraryStateButton>
 }
+
+const StyledToggleLibraryStateButton = styled.button`
+  background-color: ${(props) => props.isLibrary ? "green" : "red"};
+`;

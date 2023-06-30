@@ -4,16 +4,12 @@ import Link from "next/link";
 import ToggleLibraryStateButton from "../ToggleLibraryStateButton";
 import ToggleWishlistStateButton from "../ToggleWishlistStateButton";
 import DetailsPageButton from "../DetailsPageButton";
-import { useState } from "react";
 
-export default function Gamecard({ games }) {
-  const [isInLibrary, setIsInLibrary] = useState(false);
-
-  function handleLibraryState() {
-    setIsInLibrary(!isInLibrary);
-    console.log(isInLibrary);
-  }
-
+export default function Gamecard({
+  games,
+  onToggleLibraryClick,
+  onToggleWishlistClick,
+}) {
   return (
     <>
       <ul>
@@ -29,13 +25,20 @@ export default function Gamecard({ games }) {
               />
             </Link>
             <DetailsPageButton game={game} />
-            <ToggleLibraryStateButton onClick={handleLibraryState} />
-            <ToggleWishlistStateButton />
+
+            <ToggleLibraryStateButton
+              isLibrary={game.isLibrary}
+              onClick={() => onToggleLibraryClick(game.id)}
+              /*   gameId={game.id} */
+            />
+
+            <ToggleWishlistStateButton
+              isWishlist={game.isWishlist}
+              onClick={() => onToggleWishlistClick(game.id)}
+            />
           </StyledGameCard>
         ))}
       </ul>
     </>
   );
-}
-{
 }

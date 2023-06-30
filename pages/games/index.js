@@ -6,7 +6,7 @@ import { useState } from "react";
 import NavBar from "@/components/NavBar";
 
 export default function Homepage() {
-  const [games, setGames] = useState(initialGames);
+  const [games, setGames] = useState(initialGames.map(game => ({...game, isLibrary:false, isWishlist:false})));
   const [gamesNotFound, setGamesNotFound] = useState();
   function handleOnChange(event) {
     const formData = new FormData(event.target.form);
@@ -20,6 +20,22 @@ export default function Homepage() {
     } else {
       setGamesNotFound(false);
     }
+  }
+
+  function toggleIsLibrary(id) {
+    setGames(games.map(game =>  {
+      if (game.id === id) {
+        return {...game, isLibrary: !game.isLibrary}
+      } else return game
+    }))
+  }
+
+  function toggleIsWishlist(id){
+    setGames(games.map(game=>{
+      if (game.id === id){
+        return{...game, isWishlist: !game.isWishlist}
+      } else return game
+    }))
   }
 
   return (
@@ -43,7 +59,7 @@ export default function Homepage() {
         </StyledSvg>
       </StyledForm>
       {gamesNotFound && <p>This game could not be found.</p>}
-      <Gamecard games={games} />
+      <Gamecard games={games} onToggleLibraryClick={toggleIsLibrary} onToggleWishlistClick={toggleIsWishlist}/>
       <NavBar />
     </>
   );
