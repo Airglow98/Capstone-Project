@@ -20,7 +20,7 @@ export default function Gamecard({
               <h3>{game.title}</h3>
               <StyledImage
                 src={game.imgpath}
-                alt={"gamecover"}
+                alt={game.title}
                 width={250}
                 height={100}
               />

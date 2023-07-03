@@ -162,7 +162,8 @@ export const initialGames = [
   {
     id: 11,
     title: "Grand Theft Auto V",
-    imgpath: "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "17.09.2013",
     publisher: "Rockstar Games",
     developer: "Rockstar North",
@@ -177,7 +178,8 @@ export const initialGames = [
   {
     id: 12,
     title: "FIFA 22",
-    imgpath: "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "01.10.2021",
     publisher: "Electronic Arts",
     developer: "EA Vancouver, EA Romania",
@@ -192,7 +194,8 @@ export const initialGames = [
   {
     id: 13,
     title: "Call of Duty: Warzone",
-    imgpath: "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "10.03.2020",
     publisher: "Activision",
     developer: "Infinity Ward, Raven Software",
@@ -207,11 +210,13 @@ export const initialGames = [
   {
     id: 14,
     title: "The Elder Scrolls V: Skyrim",
-    imgpath: "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "11.11.2011",
     publisher: "Bethesda Softworks",
     developer: "Bethesda Game Studios",
-    platform: "PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, PC, Nintendo Switch",
+    platform:
+      "PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, PC, Nintendo Switch",
     singleplayer: "Yes",
     multiplayer: "No",
     crossplay: "No",
@@ -222,11 +227,13 @@ export const initialGames = [
   {
     id: 15,
     title: "Fortnite",
-    imgpath: "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "25.07.2017",
     publisher: "Epic Games",
     developer: "Epic Games",
-    platform: "PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, PC, Nintendo Switch, iOS, Android",
+    platform:
+      "PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, PC, Nintendo Switch, iOS, Android",
     singleplayer: "No",
     multiplayer: "Yes",
     crossplay: "Yes (between consoles, PC, and mobile)",
@@ -237,11 +244,13 @@ export const initialGames = [
   {
     id: 16,
     title: "Mortal Kombat 11",
-    imgpath: "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "23.04.2019",
     publisher: "Warner Bros. Interactive Entertainment",
     developer: "NetherRealm Studios",
-    platform: "PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, PC, Nintendo Switch",
+    platform:
+      "PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, PC, Nintendo Switch",
     singleplayer: "Yes",
     multiplayer: "Yes",
     crossplay: "Yes (between consoles and PC)",
@@ -252,7 +261,8 @@ export const initialGames = [
   {
     id: 17,
     title: "Uncharted 4: A Thief's End",
-    imgpath: "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "10.05.2016",
     publisher: "Sony Interactive Entertainment",
     developer: "Naughty Dog",
@@ -267,7 +277,8 @@ export const initialGames = [
   {
     id: 18,
     title: "The Legend of Zelda: Breath of the Wild 2",
-    imgpath: "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "TBD",
     publisher: "Nintendo",
     developer: "Nintendo",
@@ -282,11 +293,13 @@ export const initialGames = [
   {
     id: 19,
     title: "Rocket League",
-    imgpath: "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "07.07.2015",
     publisher: "Psyonix",
     developer: "Psyonix",
-    platform: "PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, PC, Nintendo Switch",
+    platform:
+      "PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, PC, Nintendo Switch",
     singleplayer: "Yes",
     multiplayer: "Yes",
     crossplay: "Yes (between consoles and PC)",
@@ -297,7 +310,8 @@ export const initialGames = [
   {
     id: 20,
     title: "Super Smash Bros. Ultimate",
-    imgpath: "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
+    imgpath:
+      "https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image1600w.jpg",
     release: "07.12.2018",
     publisher: "Nintendo",
     developer: "Bandai Namco Studios, Sora Ltd.",
@@ -308,5 +322,5 @@ export const initialGames = [
     category: "Fighting",
     metacritic: "93/100",
     achievements: "-",
-  }
+  },
 ];

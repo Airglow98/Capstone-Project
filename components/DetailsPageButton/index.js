@@ -1,11 +1,13 @@
-import Link from "next/link"
-import { StyledButton } from "./DetailsPageButton.styled"
+import Link from "next/link";
+import { StyledButton } from "./DetailsPageButton.styled";
 
-export default function DetailsPageButton({game}){
-    return(
+export default function DetailsPageButton({ game }) {
+  return (
     <>
-   
-    <StyledButton> <Link href={`/games/${game.id}`}>More Details</Link></StyledButton>
-   
-    </>)
+      <StyledButton>
+        {" "}
+        <Link href={`/games/${game.id}`}>More Details</Link>
+      </StyledButton>
+    </>
+  );
 }
