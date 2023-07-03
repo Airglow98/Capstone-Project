@@ -5,7 +5,8 @@ import { initialGames } from "../../db/games/data";
 import { useState } from "react";
 import NavBar from "@/components/NavBar";
 
-export default function Homepage() {
+export default function Homepage({ toggleIsLibrary }) {
+  console.log(toggleIsLibrary);
   const [games, setGames] = useState(
     initialGames.map((game) => ({
       ...game,
@@ -28,7 +29,7 @@ export default function Homepage() {
     }
   }
 
-  function toggleIsLibrary(id) {
+  /*   function toggleIsLibrary(id) {
     setGames(
       games.map((game) => {
         if (game.id === id) {
@@ -36,7 +37,7 @@ export default function Homepage() {
         } else return game;
       })
     );
-  }
+  } */
 
   function toggleIsWishlist(id) {
     setGames(

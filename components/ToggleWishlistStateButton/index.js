@@ -16,6 +16,6 @@ export default function ToggleWishlistStateButton({ onClick, isWishlist }) {
 const StyledToggleWishlistStateButton = styled.button`
   background-color: ${(props) => (props.isWishlist ? "green" : "white")};
   height: 5vh;
-  width: 25%;
+  width: 20vw;
   border-radius: 25%;
 `;
