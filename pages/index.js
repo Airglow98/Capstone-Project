@@ -1,11 +1,11 @@
-import Header from "@/components/Header";
-import NavBar from "@/components/NavBar";
+import Header from "../components/Header";
+import NavBar from "../components/NavBar";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
-import ToggleLibraryStateButton from "@/components/ToggleLibraryStateButton";
-import ToggleWishlistStateButton from "@/components/ToggleWishlistStateButton";
+import ToggleLibraryStateButton from "../components/ToggleLibraryStateButton";
+import ToggleWishlistStateButton from "../components/ToggleWishlistStateButton";
 
 export default function Spotlight({ games }) {
   const [randomGameIndex, setRandomGameIndex] = useState(null);
