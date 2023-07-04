@@ -19,16 +19,6 @@ export default function Spotlight({ games, toggleIsLibrary }) {
     }
   }, []);
 
-  function onToggleWishlistClick(id) {
-    setGames(
-      games.map((game) => {
-        if (game.id === id) {
-          return { ...game, isWishlist: !game.isWishlist };
-        } else return game;
-      })
-    );
-  }
-
   return (
     <>
       {randomGame ? (
@@ -48,14 +38,8 @@ export default function Spotlight({ games, toggleIsLibrary }) {
             <p>Diffuculty:</p>
             <StyledButtonFlexBox>
               <Link href={`/games/${randomGame.id}`}>More Details</Link>
-              <ToggleLibraryStateButton
-                isLibrary={randomGame.isLibrary}
-                onClick={() => onToggleLibraryClick(randomGame.id)}
-              />
-              <ToggleWishlistStateButton
-                isWishlist={randomGame.isWishlist}
-                onClick={() => onToggleWishlistClick(randomGame.id)}
-              />
+              <ToggleLibraryStateButton />
+              <ToggleWishlistStateButton />
             </StyledButtonFlexBox>
           </SpotlightCard>
           <NavBar />

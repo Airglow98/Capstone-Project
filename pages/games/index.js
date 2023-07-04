@@ -5,15 +5,7 @@ import { initialGames } from "../../db/games/data";
 import { useState } from "react";
 import NavBar from "@/components/NavBar";
 
-export default function Homepage({ toggleIsLibrary }) {
-  console.log(toggleIsLibrary);
-  const [games, setGames] = useState(
-    initialGames.map((game) => ({
-      ...game,
-      isLibrary: false,
-      isWishlist: false,
-    }))
-  );
+export default function Homepage({ games, toggleIsLibrary, toggleIsWishlist }) {
   const [gamesNotFound, setGamesNotFound] = useState();
   function handleOnChange(event) {
     const formData = new FormData(event.target.form);
@@ -27,26 +19,6 @@ export default function Homepage({ toggleIsLibrary }) {
     } else {
       setGamesNotFound(false);
     }
-  }
-
-  /*   function toggleIsLibrary(id) {
-    setGames(
-      games.map((game) => {
-        if (game.id === id) {
-          return { ...game, isLibrary: !game.isLibrary };
-        } else return game;
-      })
-    );
-  } */
-
-  function toggleIsWishlist(id) {
-    setGames(
-      games.map((game) => {
-        if (game.id === id) {
-          return { ...game, isWishlist: !game.isWishlist };
-        } else return game;
-      })
-    );
   }
 
   return (

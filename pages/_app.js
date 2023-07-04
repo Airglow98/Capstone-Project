@@ -22,6 +22,16 @@ export default function App({ Component, pageProps }) {
     );
   }
 
+  function toggleIsWishlist(id) {
+    setGames(
+      games.map((game) => {
+        if (game.id === id) {
+          return { ...game, isWishlist: !game.isWishlist };
+        } else return game;
+      })
+    );
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -29,6 +39,7 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         games={games}
         toggleIsLibrary={toggleIsLibrary}
+        toggleIsWishlist={toggleIsWishlist}
       />
     </>
   );
