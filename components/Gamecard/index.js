@@ -3,7 +3,7 @@ import { StyledImage } from "./Gamecard.styled";
 import Link from "next/link";
 import ToggleLibraryStateButton from "../ToggleLibraryStateButton";
 import ToggleWishlistStateButton from "../ToggleWishlistStateButton";
-import DetailsPageButton from "../DetailsPageButton";
+import DetailsPageLink from "../DetailsPageLink";
 import { StyledDiv } from "./Gamecard.styled";
 
 export default function Gamecard({
@@ -26,7 +26,7 @@ export default function Gamecard({
               />
             </Link>
             <StyledDiv>
-              <DetailsPageButton game={game} />
+              <DetailsPageLink game={game} />
               <ToggleLibraryStateButton
                 isLibrary={game.isLibrary}
                 onClick={() => onToggleLibraryClick(game.id)}

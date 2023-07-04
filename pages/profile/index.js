@@ -1,11 +1,11 @@
-import Header from "@/components/Header";
+import Header from "../../components/Header/index";
 import Image from "next/image";
 import WishlistButton from "../../components/WishlistButton/index";
 import { StyledForm } from "../games";
 import { useState } from "react";
 import styled from "styled-components";
-import NavBar from "@/components/NavBar";
-import LibraryButton from "@/components/LibraryButton";
+import NavBar from "../../components/NavBar/index";
+import LibraryButton from "../../components/LibraryButton/index";
 
 export default function ProfilePage() {
   const [imageSrc, setImageSrc] = useState();

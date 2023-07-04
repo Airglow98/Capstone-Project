@@ -3,16 +3,13 @@ import Gamecard from "../../components/Gamecard/index";
 import styled from "styled-components";
 import { initialGames } from "../../db/games/data";
 import { useState } from "react";
-import NavBar from "@/components/NavBar";
+import NavBar from "../../components/NavBar/index";
 
-export default function Homepage() {
-  const [games, setGames] = useState(
-    initialGames.map((game) => ({
-      ...game,
-      isLibrary: false,
-      isWishlist: false,
-    }))
-  );
+export default function Homepage({
+  games,
+  onToggleLibraryClick,
+  onToggleWishlistClick,
+}) {
   const [gamesNotFound, setGamesNotFound] = useState();
   function handleOnChange(event) {
     const formData = new FormData(event.target.form);
@@ -26,26 +23,6 @@ export default function Homepage() {
     } else {
       setGamesNotFound(false);
     }
-  }
-
-  function toggleIsLibrary(id) {
-    setGames(
-      games.map((game) => {
-        if (game.id === id) {
-          return { ...game, isLibrary: !game.isLibrary };
-        } else return game;
-      })
-    );
-  }
-
-  function toggleIsWishlist(id) {
-    setGames(
-      games.map((game) => {
-        if (game.id === id) {
-          return { ...game, isWishlist: !game.isWishlist };
-        } else return game;
-      })
-    );
   }
 
   return (
@@ -71,8 +48,8 @@ export default function Homepage() {
       {gamesNotFound && <p>This game could not be found.</p>}
       <Gamecard
         games={games}
-        onToggleLibraryClick={toggleIsLibrary}
-        onToggleWishlistClick={toggleIsWishlist}
+        onToggleLibraryClick={onToggleLibraryClick}
+        onToggleWishlistClick={onToggleWishlistClick}
       />
       <NavBar />
     </>
