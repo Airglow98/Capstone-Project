@@ -5,7 +5,11 @@ import { initialGames } from "../../db/games/data";
 import { useState } from "react";
 import NavBar from "@/components/NavBar";
 
-export default function Homepage({ games, toggleIsLibrary, toggleIsWishlist }) {
+export default function Homepage({
+  games,
+  onToggleLibraryClick,
+  onToggleWishlistClick,
+}) {
   const [gamesNotFound, setGamesNotFound] = useState();
   function handleOnChange(event) {
     const formData = new FormData(event.target.form);
@@ -44,8 +48,8 @@ export default function Homepage({ games, toggleIsLibrary, toggleIsWishlist }) {
       {gamesNotFound && <p>This game could not be found.</p>}
       <Gamecard
         games={games}
-        onToggleLibraryClick={toggleIsLibrary}
-        onToggleWishlistClick={toggleIsWishlist}
+        onToggleLibraryClick={onToggleLibraryClick}
+        onToggleWishlistClick={onToggleWishlistClick}
       />
       <NavBar />
     </>

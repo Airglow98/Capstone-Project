@@ -12,7 +12,6 @@ export default function App({ Component, pageProps }) {
   );
 
   function toggleIsLibrary(id) {
-    console.log("test");
     setGames(
       games.map((game) => {
         if (game.id === id) {
@@ -38,8 +37,8 @@ export default function App({ Component, pageProps }) {
       <Component
         {...pageProps}
         games={games}
-        toggleIsLibrary={toggleIsLibrary}
-        toggleIsWishlist={toggleIsWishlist}
+        onToggleLibraryClick={toggleIsLibrary}
+        onToggleWishlistClick={toggleIsWishlist}
       />
     </>
   );

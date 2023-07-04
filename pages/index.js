@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import NavBar from "@/components/NavBar";
-import { initialGames } from "@/db/games/data";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import styled from "styled-components";
@@ -8,17 +7,45 @@ import Link from "next/link";
 import ToggleLibraryStateButton from "@/components/ToggleLibraryStateButton";
 import ToggleWishlistStateButton from "@/components/ToggleWishlistStateButton";
 
-export default function Spotlight({ games, toggleIsLibrary }) {
-  const [randomGame, setRandomGame] = useState(null);
+export default function Spotlight({ games }) {
+  const [randomGameIndex, setRandomGameIndex] = useState(null);
+  const [gameList, setGameList] = useState(games);
 
   useEffect(() => {
-    if (initialGames.length > 0) {
-      const randomIndex = Math.floor(Math.random() * initialGames.length);
-      const selectedGame = initialGames[randomIndex];
-      setRandomGame(selectedGame);
+    if (games.length > 0) {
+      const randomIndex = Math.floor(Math.random() * games.length);
+      setRandomGameIndex(randomIndex);
     }
-  }, []);
+  }, [games]);
 
+  function updateLibraryStateRandomGame(gameId) {
+    const updatedGames = gameList.map((game) => {
+      if (game.id === gameId) {
+        return {
+          ...game,
+          isLibrary: !game.isLibrary,
+        };
+      }
+      return game;
+    });
+    setGameList(updatedGames);
+  }
+
+  function updateWishlistStateRandomGame(gameId) {
+    const updatedGames = gameList.map((game) => {
+      if (game.id === gameId) {
+        return {
+          ...game,
+          isWishlist: !game.isWishlist,
+        };
+      }
+      return game;
+    });
+    setGameList(updatedGames);
+  }
+
+  const randomGame =
+    randomGameIndex !== null ? gameList[randomGameIndex] : null;
   return (
     <>
       {randomGame ? (
@@ -38,8 +65,14 @@ export default function Spotlight({ games, toggleIsLibrary }) {
             <p>Diffuculty:</p>
             <StyledButtonFlexBox>
               <Link href={`/games/${randomGame.id}`}>More Details</Link>
-              <ToggleLibraryStateButton />
-              <ToggleWishlistStateButton />
+              <ToggleLibraryStateButton
+                isLibrary={randomGame.isLibrary}
+                onClick={() => updateLibraryStateRandomGame(randomGame.id)}
+              />
+              <ToggleWishlistStateButton
+                isWishlist={randomGame.isWishlist}
+                onClick={() => updateWishlistStateRandomGame(randomGame.id)}
+              />
             </StyledButtonFlexBox>
           </SpotlightCard>
           <NavBar />
