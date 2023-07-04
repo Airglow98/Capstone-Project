@@ -3,7 +3,7 @@ import Gamecard from "../../components/Gamecard/index";
 import styled from "styled-components";
 import { initialGames } from "../../db/games/data";
 import { useState } from "react";
-import NavBar from "@/components/NavBar";
+import NavBar from "../../components/NavBar/index";
 
 export default function Homepage({
   games,

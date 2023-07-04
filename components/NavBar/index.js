@@ -1,4 +1,3 @@
-import Spotlight from "@/pages";
 import GamesButton from "../GamesButton";
 import ProfileButton from "../ProfileButton";
 import styled from "styled-components";
