@@ -8,6 +8,7 @@ export const StyledGameCard = styled.li`
   background-color: #e4aa5f;
   margin-bottom: 5vh;
   margin-right: 10vw;
+  width: 80vw;
   list-style: none;
 `;
 
