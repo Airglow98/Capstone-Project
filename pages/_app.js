@@ -1,15 +1,15 @@
 import GlobalStyle from "../styles";
-import { useState } from "react";
-import { initialGames } from "@/db/games/data";
+import { initialGames } from "../db/games/data";
+import useLocalStorageState from "use-local-storage-state";
 
 export default function App({ Component, pageProps }) {
-  const [games, setGames] = useState(
-    initialGames.map((game) => ({
+  const [games, setGames] = useLocalStorageState("games", {
+    defaultValue: initialGames.map((game) => ({
       ...game,
       isLibrary: false,
       isWishlist: false,
-    }))
-  );
+    })),
+  });
 
   function toggleIsLibrary(id) {
     setGames(
@@ -39,6 +39,7 @@ export default function App({ Component, pageProps }) {
         games={games}
         onToggleLibraryClick={toggleIsLibrary}
         onToggleWishlistClick={toggleIsWishlist}
+        setGames={setGames}
       />
     </>
   );

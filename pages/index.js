@@ -6,17 +6,20 @@ import styled from "styled-components";
 import Link from "next/link";
 import ToggleLibraryStateButton from "../components/ToggleLibraryStateButton";
 import ToggleWishlistStateButton from "../components/ToggleWishlistStateButton";
+import useLocalStorageState from "use-local-storage-state";
 
 export default function Spotlight({ games }) {
   const [randomGameIndex, setRandomGameIndex] = useState(null);
-  const [gameList, setGameList] = useState(games);
+  const [gameList, setGameList] = useLocalStorageState("games", games);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    if (games.length > 0) {
-      const randomIndex = Math.floor(Math.random() * games.length);
+    if (gameList && gameList.length > 0 && !isLoaded) {
+      const randomIndex = Math.floor(Math.random() * gameList.length);
       setRandomGameIndex(randomIndex);
+      setIsLoaded(true);
     }
-  }, [games]);
+  }, [gameList, isLoaded]);
 
   function updateLibraryStateRandomGame(gameId) {
     const updatedGames = gameList.map((game) => {
@@ -63,7 +66,7 @@ export default function Spotlight({ games }) {
             <p>Achievements: {randomGame.achievements}</p>
             <p>Playtime:</p>
             <p>Diffuculty:</p>
-            <StyledButtonFlexBox>
+            <div>
               <Link href={`/games/${randomGame.id}`}>More Details</Link>
               <ToggleLibraryStateButton
                 isLibrary={randomGame.isLibrary}
@@ -73,7 +76,7 @@ export default function Spotlight({ games }) {
                 isWishlist={randomGame.isWishlist}
                 onClick={() => updateWishlistStateRandomGame(randomGame.id)}
               />
-            </StyledButtonFlexBox>
+            </div>
           </SpotlightCard>
           <NavBar />
         </>
@@ -99,13 +102,9 @@ const SpotlightCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--quaternary-color);
 `;
 
 const StyledImage = styled(Image)`
   height: auto;
-`;
-
-const StyledButtonFlexBox = styled.div`
-  /*   display: flex;
-  justify-content: space-between; */
 `;
