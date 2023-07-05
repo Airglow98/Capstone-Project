@@ -1,11 +1,11 @@
 import Header from "../../components/Header/index";
 import Image from "next/image";
-import WishlistButton from "../../components/WishlistButton/index";
+import WishlistLink from "../../components/WishlistButton";
 import { StyledForm } from "../games";
 import { useState } from "react";
 import styled from "styled-components";
 import NavBar from "../../components/NavBar/index";
-import LibraryButton from "../../components/LibraryButton/index";
+import LibraryLink from "../../components/LibraryLink";
 
 export default function ProfilePage() {
   const [imageSrc, setImageSrc] = useState();
@@ -43,8 +43,8 @@ export default function ProfilePage() {
       <p>Wishlist: 77(hardcoded)</p>
 
       <StyledDiv>
-        <LibraryButton />
-        <WishlistButton />
+        <LibraryLink />
+        <WishlistLink />
       </StyledDiv>
       <NavBar />
     </>
