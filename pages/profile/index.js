@@ -1,7 +1,7 @@
 import Header from "../../components/Header/index";
 import Image from "next/image";
 import WishlistLink from "../../components/WishlistButton";
-import { StyledForm } from "../games";
+import { StyledForm } from "../../components/Searchbar";
 import { useState } from "react";
 import styled from "styled-components";
 import NavBar from "../../components/NavBar/index";

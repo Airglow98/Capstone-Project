@@ -1,8 +1,9 @@
 import { StyledHeader } from "../../../components/Header/Header.styled";
 import ProfileBackwardButton from "../../../components/ProfileBackwardButton";
+import Searchbar from "../../../components/Searchbar";
 import WishlistGames from "../../../components/WishlistGames";
 
-export default function WishlistPage({ games }) {
+export default function WishlistPage({ games, setGames }) {
   return (
     <>
       <StyledHeader>
