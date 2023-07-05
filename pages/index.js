@@ -66,7 +66,7 @@ export default function Spotlight({ games }) {
             <p>Achievements: {randomGame.achievements}</p>
             <p>Playtime:</p>
             <p>Diffuculty:</p>
-            <StyledButtonFlexBox>
+            <div>
               <Link href={`/games/${randomGame.id}`}>More Details</Link>
               <ToggleLibraryStateButton
                 isLibrary={randomGame.isLibrary}
@@ -76,7 +76,7 @@ export default function Spotlight({ games }) {
                 isWishlist={randomGame.isWishlist}
                 onClick={() => updateWishlistStateRandomGame(randomGame.id)}
               />
-            </StyledButtonFlexBox>
+            </div>
           </SpotlightCard>
           <NavBar />
         </>
@@ -108,5 +108,3 @@ const SpotlightCard = styled.div`
 const StyledImage = styled(Image)`
   height: auto;
 `;
-
-const StyledButtonFlexBox = styled.div``;
