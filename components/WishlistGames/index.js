@@ -1,15 +1,16 @@
+import { StyledGameCard } from "../Gamecard/Gamecard.styled";
 import Link from "next/link";
-import { StyledGameCard, StyledImage } from "../Gamecard/Gamecard.styled";
+import { StyledImage } from "../Gamecard/Gamecard.styled";
 import { StyledDiv } from "../../pages/games/[id]";
 
-export default function LibraryGames({ games }) {
-  const libraryGames = games.filter((game) => game.isLibrary);
+export default function WishlistGames({ games }) {
+  const wishlistGames = games.filter((game) => game.isWishlist);
 
   return (
     <>
       <StyledDiv>
         <ul>
-          {libraryGames.map((game) => (
+          {wishlistGames.map((game) => (
             <StyledGameCard key={game.id}>
               <Link href={`/games/${game.id}`}>
                 <h3>{game.title}</h3>
