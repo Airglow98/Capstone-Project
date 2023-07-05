@@ -6,17 +6,19 @@ import styled from "styled-components";
 import Link from "next/link";
 import ToggleLibraryStateButton from "../components/ToggleLibraryStateButton";
 import ToggleWishlistStateButton from "../components/ToggleWishlistStateButton";
+import useLocalStorageState from "use-local-storage-state";
+/* import React, { memo } from "react"; */
 
 export default function Spotlight({ games }) {
   const [randomGameIndex, setRandomGameIndex] = useState(null);
-  const [gameList, setGameList] = useState(games);
+  const [gameList, setGameList] = useLocalStorageState("games", games);
 
   useEffect(() => {
-    if (games.length > 0) {
-      const randomIndex = Math.floor(Math.random() * games.length);
+    if (gameList && gameList.length > 0) {
+      const randomIndex = Math.floor(Math.random() * gameList.length);
       setRandomGameIndex(randomIndex);
     }
-  }, [games]);
+  }, [gameList]);
 
   function updateLibraryStateRandomGame(gameId) {
     const updatedGames = gameList.map((game) => {
