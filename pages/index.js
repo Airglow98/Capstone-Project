@@ -102,13 +102,11 @@ const SpotlightCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--quaternary-color);
 `;
 
 const StyledImage = styled(Image)`
   height: auto;
 `;
 
-const StyledButtonFlexBox = styled.div`
-  /*   display: flex;
-  justify-content: space-between; */
-`;
+const StyledButtonFlexBox = styled.div``;

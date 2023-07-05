@@ -5,7 +5,7 @@ export const StyledGameCard = styled.li`
   text-align: center;
   border: 5px groove orange;
   border-radius: 5%;
-  background-color: #e4aa5f;
+  background-color: var(--quaternary-color);
   margin-bottom: 5vh;
   margin-right: 10vw;
   width: 80vw;

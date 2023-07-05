@@ -12,4 +12,5 @@ export default function ProfileButton() {
 const StyledProfileButton = styled.button`
   width: 34vw;
   height: 100%;
+  background-color: var(--secondary-color);
 `;

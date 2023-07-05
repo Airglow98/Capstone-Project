@@ -12,4 +12,5 @@ export default function GamesButton() {
 const StyledGamesButton = styled.button`
   width: 33vw;
   height: 100%;
+  background-color: var(--secondary-color);
 `;

@@ -1,6 +1,5 @@
 import GlobalStyle from "../styles";
-import { useState } from "react";
-import { initialGames } from "@/db/games/data";
+import { initialGames } from "../db/games/data";
 import useLocalStorageState from "use-local-storage-state";
 
 export default function App({ Component, pageProps }) {

@@ -14,4 +14,5 @@ export default function SpotlightButton() {
 const StyledSpotlightButton = styled.button`
   width: 33vw;
   height: 100%;
+  background-color: var(--secondary-color);
 `;
