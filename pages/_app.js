@@ -30,8 +30,8 @@ export default function App({ Component, pageProps }) {
       })
     );
   }
-  const libraryGames = games.filter((game) => game.isLibrary);
-  const wishlistGames = games.filter((game) => game.isWishlist);
+  const amountOfLibraryGames = games.filter((game) => game.isLibrary).length;
+  const amountOfWishlistGames = games.filter((game) => game.isWishlist).length;
 
   return (
     <>
@@ -42,8 +42,8 @@ export default function App({ Component, pageProps }) {
         onToggleLibraryClick={toggleIsLibrary}
         onToggleWishlistClick={toggleIsWishlist}
         setGames={setGames}
-        libraryGames={libraryGames}
-        wishlistGames={wishlistGames}
+        amountOfLibraryGames={amountOfLibraryGames}
+        amountOfWishlistGames={amountOfWishlistGames}
       />
     </>
   );
