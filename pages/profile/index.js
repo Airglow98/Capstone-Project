@@ -7,7 +7,9 @@ import styled from "styled-components";
 import NavBar from "../../components/NavBar/index";
 import LibraryLink from "../../components/LibraryLink";
 
-export default function ProfilePage() {
+export default function ProfilePage({ libraryGames, wishlistGames }) {
+  const libraryCount = libraryGames.length;
+  const wishlistCount = wishlistGames.length;
   const [imageSrc, setImageSrc] = useState();
 
   function handleFileChange(event) {
@@ -37,10 +39,10 @@ export default function ProfilePage() {
         </StyledForm>
         <StyledParagraph>Nickname</StyledParagraph>
       </StyledProfileHeader>
-      <p>Owned Games: 77(hardcoded)</p>
+      <p>Owned Games: {libraryCount}</p>
       <p>Perfect Games: 57(hardcoded)</p>
       <p>Achievements: 787(hardcoded)</p>
-      <p>Wishlist: 77(hardcoded)</p>
+      <p>Wishlist: {wishlistCount}</p>
 
       <StyledDiv>
         <LibraryLink />
