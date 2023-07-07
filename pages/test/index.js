@@ -5,7 +5,9 @@ export default function Test() {
   console.log(data);
 
   if (isLoading) {
-    <h2>is Loading...</h2>;
+    return <h2>is Loading...</h2>;
+  } else if (!data) {
+    return <p>no data</p>;
   }
 
   return data.map((game) => <p key={game.id}>{game.title}</p>);

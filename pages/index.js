@@ -1,25 +1,27 @@
+import { useEffect, useState } from "react";
+import useSWR from "swr";
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
 import ToggleLibraryStateButton from "../components/ToggleLibraryStateButton";
 import ToggleWishlistStateButton from "../components/ToggleWishlistStateButton";
-import useLocalStorageState from "use-local-storage-state";
 
-export default function Spotlight({ games }) {
+export default function Spotlight() {
+  const { data: games, error } = useSWR("/api/games");
   const [randomGameIndex, setRandomGameIndex] = useState(null);
-  const [gameList, setGameList] = useState(games);
+  const [gameList, setGameList] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    if (gameList && gameList.length > 0 && !isLoaded) {
-      const randomIndex = Math.floor(Math.random() * gameList.length);
+    if (games && games.length > 0 && !isLoaded) {
+      const randomIndex = Math.floor(Math.random() * games.length);
+      setGameList(games);
       setRandomGameIndex(randomIndex);
       setIsLoaded(true);
     }
-  }, [gameList, isLoaded]);
+  }, [games, isLoaded]);
 
   function updateLibraryStateRandomGame(gameId) {
     const updatedGames = gameList.map((game) => {
@@ -49,9 +51,22 @@ export default function Spotlight({ games }) {
 
   const randomGame =
     randomGameIndex !== null ? gameList[randomGameIndex] : null;
+
+  if (error) {
+    return (
+      <>
+        <Header HeaderText={"Spotlight"} />
+        <SpotlightCard>
+          <p>Error loading games</p>
+        </SpotlightCard>
+        <NavBar />
+      </>
+    );
+  }
+
   return (
     <>
-      {randomGame ? (
+      {randomGame && isLoaded ? (
         <>
           <Header HeaderText={"Spotlight"} />
           <SpotlightCard>
@@ -62,10 +77,10 @@ export default function Spotlight({ games }) {
               width={250}
               height={100}
             />
-            <p>Platform:{randomGame.platform}</p>
+            <p>Platform: {randomGame.platform}</p>
             <p>Achievements: {randomGame.achievements}</p>
             <p>Playtime:</p>
-            <p>Diffuculty:</p>
+            <p>Difficulty:</p>
             <div>
               <Link href={`/games/${randomGame.id}`}>More Details</Link>
               <ToggleLibraryStateButton
@@ -84,7 +99,7 @@ export default function Spotlight({ games }) {
         <>
           <Header HeaderText={"Spotlight"} />
           <SpotlightCard>
-            <p>This game could not be found</p>
+            <p>Loading...</p>
           </SpotlightCard>
           <NavBar />
         </>

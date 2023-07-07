@@ -4,7 +4,8 @@ import useSWR from "swr";
 import { useState, useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
-  const { data, isLoading } = useSWR("/api/games");
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  const { data, isLoading } = useSWR("/api/games", fetcher);
   const [games, setGames] = useState([]);
 
   useEffect(() => {
@@ -18,8 +19,6 @@ export default function App({ Component, pageProps }) {
       );
     }
   }, [data]);
-
-  console.log(data);
 
   if (isLoading) {
     return <h2>loading...</h2>;
