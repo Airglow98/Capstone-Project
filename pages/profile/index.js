@@ -41,8 +41,6 @@ export default function ProfilePage({
         <StyledParagraph>Nickname</StyledParagraph>
       </StyledProfileHeader>
       <p>Owned Games: {amountOfLibraryGames}</p>
-      <p>Perfect Games: 57(hardcoded)</p>
-      <p>Achievements: 787(hardcoded)</p>
       <p>Wishlist: {amountOfWishlistGames}</p>
 
       <StyledDiv>

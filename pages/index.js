@@ -78,9 +78,9 @@ export default function Spotlight() {
               height={100}
             />
             <p>Platform: {randomGame.platform}</p>
+            <p>Crossplay:{randomGame.crossplay}</p>
             <p>Achievements: {randomGame.achievements}</p>
-            <p>Playtime:</p>
-            <p>Difficulty:</p>
+            <p>Metacritic:{randomGame.metacritic}</p>
             <div>
               <Link href={`/games/${randomGame.id}`}>More Details</Link>
               <ToggleLibraryStateButton
@@ -110,7 +110,7 @@ export default function Spotlight() {
 
 const SpotlightCard = styled.div`
   border: 3px solid black;
-  height: 70vh;
+  height: 75vh;
   width: 80vw;
   margin-top: 15vh;
   margin-left: 10vw;

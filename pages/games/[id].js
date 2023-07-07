@@ -1,16 +1,15 @@
 import { useRouter } from "next/router";
-import { initialGames } from "../../db/games/data";
 import { StyledHeader } from "../../components/Header/Header.styled";
 import { StyledImage } from "../../components/Gamecard/Gamecard.styled";
 import GamesBackwardButton from "../../components/GamesBackwardButton";
 import GameInformation from "../../components/GameInformation";
 import styled from "styled-components";
 
-export default function GameDetailPage() {
+export default function GameDetailPage({ games }) {
   const router = useRouter();
   const { id } = router.query;
 
-  const game = initialGames.find((game) => game.id.toString() === id);
+  const game = games.find((game) => game.id.toString() === id);
 
   return (
     <>
