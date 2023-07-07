@@ -10,7 +10,7 @@ import useLocalStorageState from "use-local-storage-state";
 
 export default function Spotlight({ games }) {
   const [randomGameIndex, setRandomGameIndex] = useState(null);
-  const [gameList, setGameList] = useLocalStorageState("games", games);
+  const [gameList, setGameList] = useState(games);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {

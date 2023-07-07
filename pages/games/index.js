@@ -8,7 +8,10 @@ export default function Homepage({
   onToggleLibraryClick,
   onToggleWishlistClick,
   setGames,
+  data,
 }) {
+  console.log(games);
+  console.log(data);
   return (
     <>
       <Header HeaderText={"Games"} />

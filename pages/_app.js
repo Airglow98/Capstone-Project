@@ -1,15 +1,28 @@
 import GlobalStyle from "../styles";
-import { initialGames } from "../db/games/data";
-import useLocalStorageState from "use-local-storage-state";
+import { SWRConfig } from "swr";
+import useSWR from "swr";
+import { useState, useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
-  const [games, setGames] = useLocalStorageState("games", {
-    defaultValue: initialGames.map((game) => ({
-      ...game,
-      isLibrary: false,
-      isWishlist: false,
-    })),
-  });
+  const { data, isLoading } = useSWR("/api/games");
+  const [games, setGames] = useState([]);
+
+  useEffect(() => {
+    if (data) {
+      setGames(
+        data.map((game) => ({
+          ...game,
+          isLibrary: false,
+          isWishlist: false,
+        }))
+      );
+    }
+  }, [data]);
+  console.log(data);
+
+  if (isLoading) {
+    return <h2>is Loading</h2>;
+  }
 
   function toggleIsLibrary(id) {
     setGames(
@@ -35,16 +48,29 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <GlobalStyle />
-      <Component
-        {...pageProps}
-        games={games}
-        onToggleLibraryClick={toggleIsLibrary}
-        onToggleWishlistClick={toggleIsWishlist}
-        setGames={setGames}
-        amountOfLibraryGames={amountOfLibraryGames}
-        amountOfWishlistGames={amountOfWishlistGames}
-      />
+      <SWRConfig
+        value={{
+          fetcher: async (...args) => {
+            const response = await fetch(...args);
+            if (!response.ok) {
+              throw new Error(`Request with ${JSON.stringify(args)} failed.`);
+            }
+            return await response.json();
+          },
+        }}
+      >
+        <GlobalStyle />
+        <Component
+          {...pageProps}
+          games={games}
+          onToggleLibraryClick={toggleIsLibrary}
+          onToggleWishlistClick={toggleIsWishlist}
+          setGames={setGames}
+          amountOfLibraryGames={amountOfLibraryGames}
+          amountOfWishlistGames={amountOfWishlistGames}
+          data={data}
+        />
+      </SWRConfig>
     </>
   );
 }
