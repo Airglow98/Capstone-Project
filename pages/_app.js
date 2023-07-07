@@ -18,10 +18,11 @@ export default function App({ Component, pageProps }) {
       );
     }
   }, [data]);
+
   console.log(data);
 
   if (isLoading) {
-    return <h2>is Loading</h2>;
+    return <h2>loading...</h2>;
   }
 
   function toggleIsLibrary(id) {
