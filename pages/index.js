@@ -8,49 +8,23 @@ import Link from "next/link";
 import ToggleLibraryStateButton from "../components/ToggleLibraryStateButton";
 import ToggleWishlistStateButton from "../components/ToggleWishlistStateButton";
 
-export default function Spotlight() {
+export default function Spotlight({
+  updateLibraryStateRandomGame,
+  updateWishlistStateRandomGame,
+}) {
   const { data: games, error } = useSWR("/api/games");
   const [randomGameIndex, setRandomGameIndex] = useState(null);
-  const [gameList, setGameList] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     if (games && games.length > 0 && !isLoaded) {
       const randomIndex = Math.floor(Math.random() * games.length);
-      setGameList(games);
       setRandomGameIndex(randomIndex);
       setIsLoaded(true);
     }
   }, [games, isLoaded]);
 
-  function updateLibraryStateRandomGame(gameId) {
-    const updatedGames = gameList.map((game) => {
-      if (game.id === gameId) {
-        return {
-          ...game,
-          isLibrary: !game.isLibrary,
-        };
-      }
-      return game;
-    });
-    setGameList(updatedGames);
-  }
-
-  function updateWishlistStateRandomGame(gameId) {
-    const updatedGames = gameList.map((game) => {
-      if (game.id === gameId) {
-        return {
-          ...game,
-          isWishlist: !game.isWishlist,
-        };
-      }
-      return game;
-    });
-    setGameList(updatedGames);
-  }
-
-  const randomGame =
-    randomGameIndex !== null ? gameList[randomGameIndex] : null;
+  const randomGame = randomGameIndex !== null ? games[randomGameIndex] : null;
 
   if (error) {
     return (

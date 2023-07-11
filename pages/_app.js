@@ -13,8 +13,8 @@ export default function App({ Component, pageProps }) {
       setGames(
         data.map((game) => ({
           ...game,
-          isLibrary: false,
-          isWishlist: false,
+          /*  isLibrary: false,
+          isWishlist: false, in der Datenbank hinzugeügte keys*/
         }))
       );
     }
@@ -24,14 +24,59 @@ export default function App({ Component, pageProps }) {
     return <h2>loading...</h2>;
   }
 
-  function toggleIsLibrary(id) {
+  function updateLibraryStateRandomGame(gameId) {
+    const updatedGames = games.map((game) => {
+      if (game.id === gameId) {
+        return {
+          ...game,
+          isLibrary: !game.isLibrary,
+        };
+      }
+      return game;
+    });
+    setGames(updatedGames);
+  }
+
+  function updateWishlistStateRandomGame(gameId) {
+    const updatedGames = games.map((game) => {
+      if (game.id === gameId) {
+        return {
+          ...game,
+          isWishlist: !game.isWishlist,
+        };
+      }
+      return game;
+    });
+    setGames(updatedGames);
+  }
+
+  async function toggleIsLibrary(id) {
     setGames(
       games.map((game) => {
         if (game.id === id) {
-          return { ...game, isLibrary: !game.isLibrary };
-        } else return game;
+          const updatedGame = { ...game, isLibrary: !game.isLibrary };
+          updateGameInBackend(id, updatedGame); // Aktualisiere das Spiel auch im Backend
+          return updatedGame;
+        } else {
+          return game;
+        }
       })
     );
+  }
+
+  async function updateGameInBackend(id, updatedGame) {
+    console.log(id);
+    try {
+      await fetch(`/api/games/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedGame),
+      });
+    } catch (error) {
+      console.error("Fehler beim Speichern im Backend", error);
+    }
   }
 
   function toggleIsWishlist(id) {
@@ -69,6 +114,8 @@ export default function App({ Component, pageProps }) {
           amountOfLibraryGames={amountOfLibraryGames}
           amountOfWishlistGames={amountOfWishlistGames}
           data={data}
+          updateLibraryStateRandomGame={updateLibraryStateRandomGame}
+          updateWishlistStateRandomGame={updateWishlistStateRandomGame}
         />
       </SWRConfig>
     </>
