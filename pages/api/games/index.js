@@ -9,19 +9,18 @@ export default async function handler(request, response) {
     return response.status(200).json(dbGames);
   } else if (request.method === "PUT") {
     try {
-      const { id } = request.query;
+      const { _id } = request.body;
       const newData = request.body;
-      console.log("test");
-      console.log(request.query);
+      console.log(request.body);
 
-      const game = await Game.findById(id);
+      const game = await Game.findById(_id);
 
       if (!game) {
         return response.status(404).json({ message: "Spiel nicht gefunden" });
       }
 
-      game.isLibrary = newData.isLibrary;
-      await game.save();
+      await Game.findByIdAndUpdate(_id, newData);
+
       return response.status(200).json(game);
     } catch (error) {
       return response.status(500).json({ message: "Interner Serverfehler" });

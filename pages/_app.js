@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
-  const { data, isLoading } = useSWR("/api/games", fetcher);
+  const { data, isLoading, mutate } = useSWR("/api/games", fetcher);
   const [games, setGames] = useState([]);
 
   useEffect(() => {
@@ -67,13 +67,17 @@ export default function App({ Component, pageProps }) {
   async function updateGameInBackend(id, updatedGame) {
     console.log(id);
     try {
-      await fetch(`/api/games/${id}`, {
+      const response = await fetch(`/api/games/`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(updatedGame),
       });
+
+      if (response.ok) {
+        mutate();
+      }
     } catch (error) {
       console.error("Fehler beim Speichern im Backend", error);
     }
