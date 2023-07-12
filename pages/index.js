@@ -9,8 +9,8 @@ import ToggleLibraryStateButton from "../components/ToggleLibraryStateButton";
 import ToggleWishlistStateButton from "../components/ToggleWishlistStateButton";
 
 export default function Spotlight({
-  updateLibraryStateRandomGame,
-  updateWishlistStateRandomGame,
+  onToggleLibraryClick,
+  onToggleWishlistClick,
 }) {
   const { data: games, error } = useSWR("/api/games");
   const [randomGameIndex, setRandomGameIndex] = useState(null);
@@ -59,11 +59,11 @@ export default function Spotlight({
               <Link href={`/games/${randomGame.id}`}>More Details</Link>
               <ToggleLibraryStateButton
                 isLibrary={randomGame.isLibrary}
-                onClick={() => updateLibraryStateRandomGame(randomGame.id)}
+                onClick={() => onToggleLibraryClick(randomGame.id)}
               />
               <ToggleWishlistStateButton
                 isWishlist={randomGame.isWishlist}
-                onClick={() => updateWishlistStateRandomGame(randomGame.id)}
+                onClick={() => onToggleWishlistClick(randomGame.id)}
               />
             </div>
           </SpotlightCard>

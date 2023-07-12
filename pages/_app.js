@@ -24,32 +24,6 @@ export default function App({ Component, pageProps }) {
     return <h2>loading...</h2>;
   }
 
-  function updateLibraryStateRandomGame(gameId) {
-    const updatedGames = games.map((game) => {
-      if (game.id === gameId) {
-        return {
-          ...game,
-          isLibrary: !game.isLibrary,
-        };
-      }
-      return game;
-    });
-    setGames(updatedGames);
-  }
-
-  function updateWishlistStateRandomGame(gameId) {
-    const updatedGames = games.map((game) => {
-      if (game.id === gameId) {
-        return {
-          ...game,
-          isWishlist: !game.isWishlist,
-        };
-      }
-      return game;
-    });
-    setGames(updatedGames);
-  }
-
   async function toggleIsLibrary(id) {
     setGames(
       games.map((game) => {
@@ -136,8 +110,6 @@ export default function App({ Component, pageProps }) {
           amountOfLibraryGames={amountOfLibraryGames}
           amountOfWishlistGames={amountOfWishlistGames}
           data={data}
-          updateLibraryStateRandomGame={updateLibraryStateRandomGame}
-          updateWishlistStateRandomGame={updateWishlistStateRandomGame}
         />
       </SWRConfig>
     </>
