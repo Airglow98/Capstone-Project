@@ -55,7 +55,7 @@ export default function App({ Component, pageProps }) {
       games.map((game) => {
         if (game.id === id) {
           const updatedGame = { ...game, isLibrary: !game.isLibrary };
-          updateGameInBackend(id, updatedGame); // Aktualisiere das Spiel auch im Backend
+          updateGameInBackend(id, updatedGame);
           return updatedGame;
         } else {
           return game;
@@ -63,9 +63,7 @@ export default function App({ Component, pageProps }) {
       })
     );
   }
-
   async function updateGameInBackend(id, updatedGame) {
-    console.log(id);
     try {
       const response = await fetch(`/api/games/`, {
         method: "PUT",
@@ -87,11 +85,31 @@ export default function App({ Component, pageProps }) {
     setGames(
       games.map((game) => {
         if (game.id === id) {
-          return { ...game, isWishlist: !game.isWishlist };
+          const updatedGame = { ...game, isWishlist: !game.isWishlist };
+          updateGameInBackend(id, updatedGame);
+          return updatedGame;
         } else return game;
       })
     );
+    async function updateGameInBackend(id, updatedGame) {
+      try {
+        const response = await fetch(`/api/games/`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedGame),
+        });
+
+        if (response.ok) {
+          mutate();
+        }
+      } catch (error) {
+        console.error("Fehler beim Speichern im Backend", error);
+      }
+    }
   }
+
   const amountOfLibraryGames = games.filter((game) => game.isLibrary).length;
   const amountOfWishlistGames = games.filter((game) => game.isWishlist).length;
 
