@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function App({ Component, pageProps }) {
-  const { data, isLoading, mutate } = useSWR("/api/games", fetcher);
-  const [games, setGames] = useState(data ? data : []);
-  /* 
+  const { data, error, isLoading, mutate } = useSWR("/api/games", fetcher);
+  const [games, setGames] = useState([]);
+
   useEffect(() => {
     if (data) {
       setGames(
@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }) {
         }))
       );
     }
-  }, [data]); */
+  }, [data]);
 
   if (isLoading) {
     return <h2>loading...</h2>;
@@ -82,6 +82,7 @@ export default function App({ Component, pageProps }) {
         amountOfLibraryGames={amountOfLibraryGames}
         amountOfWishlistGames={amountOfWishlistGames}
         data={data}
+        error={error}
       />
     </>
   );

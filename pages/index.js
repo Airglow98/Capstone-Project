@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import useSWR from "swr";
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import Image from "next/image";
@@ -11,8 +10,9 @@ import ToggleWishlistStateButton from "../components/ToggleWishlistStateButton";
 export default function Spotlight({
   onToggleLibraryClick,
   onToggleWishlistClick,
+  games,
+  error,
 }) {
-  const { data: games, error } = useSWR("/api/games");
   const [randomGameIndex, setRandomGameIndex] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -92,8 +92,10 @@ const SpotlightCard = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: var(--quaternary-color);
+  border-radius: 7%;
 `;
 
 const StyledImage = styled(Image)`
   height: auto;
+  border-radius: 7%;
 `;
