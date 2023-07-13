@@ -1,8 +1,19 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 import { useState, useEffect } from "react";
+import { SWRConfig } from "swr";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+async function fetcher(...args) {
+  try {
+    const response = await fetch(...args);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+//const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function App({ Component, pageProps }) {
   const { data, error, isLoading, mutate } = useSWR("/api/games", fetcher);
@@ -71,19 +82,20 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <GlobalStyle />
-      <Component
-        {...pageProps}
-        value={{ fetcher }}
-        games={games}
-        onToggleLibraryClick={toggleIsLibrary}
-        onToggleWishlistClick={toggleIsWishlist}
-        setGames={setGames}
-        amountOfLibraryGames={amountOfLibraryGames}
-        amountOfWishlistGames={amountOfWishlistGames}
-        data={data}
-        error={error}
-      />
+      <SWRConfig value={{ fetcher }}>
+        <GlobalStyle />
+        <Component
+          {...pageProps}
+          games={games}
+          onToggleLibraryClick={toggleIsLibrary}
+          onToggleWishlistClick={toggleIsWishlist}
+          setGames={setGames}
+          amountOfLibraryGames={amountOfLibraryGames}
+          amountOfWishlistGames={amountOfWishlistGames}
+          data={data}
+          error={error}
+        />
+      </SWRConfig>
     </>
   );
 }
