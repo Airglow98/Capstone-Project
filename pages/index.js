@@ -1,57 +1,46 @@
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
 import ToggleLibraryStateButton from "../components/ToggleLibraryStateButton";
 import ToggleWishlistStateButton from "../components/ToggleWishlistStateButton";
-import useLocalStorageState from "use-local-storage-state";
 
-export default function Spotlight({ games }) {
+export default function Spotlight({
+  onToggleLibraryClick,
+  onToggleWishlistClick,
+  games,
+  error,
+}) {
   const [randomGameIndex, setRandomGameIndex] = useState(null);
-  const [gameList, setGameList] = useLocalStorageState("games", games);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    if (gameList && gameList.length > 0 && !isLoaded) {
-      const randomIndex = Math.floor(Math.random() * gameList.length);
+    if (games && games.length > 0 && !isLoaded) {
+      const randomIndex = Math.floor(Math.random() * games.length);
       setRandomGameIndex(randomIndex);
       setIsLoaded(true);
     }
-  }, [gameList, isLoaded]);
+  }, [games, isLoaded]);
 
-  function updateLibraryStateRandomGame(gameId) {
-    const updatedGames = gameList.map((game) => {
-      if (game.id === gameId) {
-        return {
-          ...game,
-          isLibrary: !game.isLibrary,
-        };
-      }
-      return game;
-    });
-    setGameList(updatedGames);
+  const randomGame = randomGameIndex !== null ? games[randomGameIndex] : null;
+
+  if (error) {
+    return (
+      <>
+        <Header HeaderText={"Spotlight"} />
+        <SpotlightCard>
+          <p>Error loading games</p>
+        </SpotlightCard>
+        <NavBar />
+      </>
+    );
   }
 
-  function updateWishlistStateRandomGame(gameId) {
-    const updatedGames = gameList.map((game) => {
-      if (game.id === gameId) {
-        return {
-          ...game,
-          isWishlist: !game.isWishlist,
-        };
-      }
-      return game;
-    });
-    setGameList(updatedGames);
-  }
-
-  const randomGame =
-    randomGameIndex !== null ? gameList[randomGameIndex] : null;
   return (
     <>
-      {randomGame ? (
+      {randomGame && isLoaded ? (
         <>
           <Header HeaderText={"Spotlight"} />
           <SpotlightCard>
@@ -62,19 +51,19 @@ export default function Spotlight({ games }) {
               width={250}
               height={100}
             />
-            <p>Platform:{randomGame.platform}</p>
+            <p>Platform: {randomGame.platform}</p>
+            <p>Crossplay:{randomGame.crossplay}</p>
             <p>Achievements: {randomGame.achievements}</p>
-            <p>Playtime:</p>
-            <p>Diffuculty:</p>
+            <p>Metacritic:{randomGame.metacritic}</p>
             <div>
               <Link href={`/games/${randomGame.id}`}>More Details</Link>
               <ToggleLibraryStateButton
                 isLibrary={randomGame.isLibrary}
-                onClick={() => updateLibraryStateRandomGame(randomGame.id)}
+                onClick={() => onToggleLibraryClick(randomGame.id)}
               />
               <ToggleWishlistStateButton
                 isWishlist={randomGame.isWishlist}
-                onClick={() => updateWishlistStateRandomGame(randomGame.id)}
+                onClick={() => onToggleWishlistClick(randomGame.id)}
               />
             </div>
           </SpotlightCard>
@@ -84,7 +73,7 @@ export default function Spotlight({ games }) {
         <>
           <Header HeaderText={"Spotlight"} />
           <SpotlightCard>
-            <p>This game could not be found</p>
+            <p>Loading...</p>
           </SpotlightCard>
           <NavBar />
         </>
@@ -95,7 +84,7 @@ export default function Spotlight({ games }) {
 
 const SpotlightCard = styled.div`
   border: 3px solid black;
-  height: 70vh;
+  height: 75vh;
   width: 80vw;
   margin-top: 15vh;
   margin-left: 10vw;
@@ -103,8 +92,10 @@ const SpotlightCard = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: var(--quaternary-color);
+  border-radius: 7%;
 `;
 
 const StyledImage = styled(Image)`
   height: auto;
+  border-radius: 7%;
 `;

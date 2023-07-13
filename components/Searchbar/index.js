@@ -1,4 +1,3 @@
-import { initialGames } from "../../db/games/data";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -7,7 +6,7 @@ export default function Searchbar({ games, setGames }) {
   function handleOnChange(event) {
     const formData = new FormData(event.target.form);
     const data = Object.fromEntries(formData);
-    const filteredGames = initialGames.filter((game) =>
+    const filteredGames = games.filter((game) =>
       game.title.toLowerCase().includes(data.searchbar.toLowerCase())
     );
     setGames(filteredGames);
