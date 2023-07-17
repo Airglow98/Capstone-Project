@@ -13,7 +13,6 @@ async function fetcher(...args) {
     throw error;
   }
 }
-//const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function App({ Component, pageProps }) {
   const { data, error, isLoading, mutate } = useSWR("/api/games", fetcher);

@@ -1,11 +1,10 @@
 import Header from "../../components/Header/index";
-import Image from "next/image";
 import WishlistLink from "../../components/WishlistButton";
-import { StyledForm } from "../../components/Searchbar";
 import { useState } from "react";
 import styled from "styled-components";
 import NavBar from "../../components/NavBar/index";
 import LibraryLink from "../../components/LibraryLink";
+import ImageUploadForm from "../../components/ImageUploadForm";
 
 export default function ProfilePage({
   amountOfLibraryGames,
@@ -25,24 +24,12 @@ export default function ProfilePage({
     <>
       <Header HeaderText={"My Profile"} />
       <StyledProfileHeader>
-        <StyledForm>
-          <StyledLabel htmlFor="userUpload">
-            Select your Profilepicture
-          </StyledLabel>
-          <StyledInput
-            onChange={handleFileChange}
-            type="file"
-            id="userUpload"
-            name="avatar"
-            accept="image/png, image/jpeg"
-          ></StyledInput>
-          <StyledImage src={imageSrc} alt="user img" width={150} height={150} />
-        </StyledForm>
-        <StyledParagraph>Nickname</StyledParagraph>
+        <StyledUpload>
+          <ImageUploadForm />
+        </StyledUpload>
       </StyledProfileHeader>
       <p>Owned Games: {amountOfLibraryGames}</p>
       <p>Wishlist: {amountOfWishlistGames}</p>
-
       <StyledDiv>
         <LibraryLink />
         <WishlistLink />
@@ -52,14 +39,6 @@ export default function ProfilePage({
   );
 }
 
-const StyledImage = styled(Image)`
-  border-radius: 50%;
-`;
-
-const StyledParagraph = styled.p`
-  font-size: 5vw;
-`;
-
 const StyledProfileHeader = styled.div`
   display: flex;
   justify-content: center;
@@ -67,21 +46,13 @@ const StyledProfileHeader = styled.div`
   margin-right: 10vw;
 `;
 
-const StyledInput = styled.input`
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-`;
-
-const StyledLabel = styled.label`
-  border: black inset 2px;
-  background-color: lightgrey;
-`;
-
 const StyledDiv = styled.div`
   display: flex;
   justify-content: space-around;
+`;
+
+const StyledUpload = styled.div`
+  width: 80%;
+  padding: 1rem;
+  margin-left: 10%;
 `;

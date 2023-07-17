@@ -7,7 +7,7 @@ export default function ImageList() {
   const { data, error } = useSWR("api/images");
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading images...</div>;
-
+  console.log(data.resources[0].url);
   return (
     <StyledList>
       {data.resources.map((image) => {
@@ -24,7 +24,6 @@ export default function ImageList() {
               />
             </a>
           </Link>
-
           <p>
             {image.tags.length > 0 ? (
               image.tags.map((tag, index) => (

@@ -3,7 +3,7 @@ import styled from "styled-components";
 // we are using useSWR to mutate the data once a file has been uploaded
 import useSWR from "swr";
 function ImageUploadForm() {
-  const { mutate } = useSWR("/api/images/");
+  const { mutate } = useSWR("/api/images");
   // We define some states to give some feedback to the user what happened to our upload
   const [uploadStatus, setUploadStatus] = useState("");
   const [error, setError] = useState(undefined);
@@ -14,7 +14,7 @@ function ImageUploadForm() {
     const formData = new FormData(event.target);
     // we use fetch to call our API and pass the form data and request method
     try {
-      const response = await fetch("/api/upload", {
+      const response = await fetch("/api/images/upload", {
         method: "post",
         body: formData,
       });
