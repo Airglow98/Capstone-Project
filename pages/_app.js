@@ -17,7 +17,6 @@ async function fetcher(...args) {
 export default function App({ Component, pageProps }) {
   const { data, error, isLoading, mutate } = useSWR("/api/games", fetcher);
   const [games, setGames] = useState([]);
-
   useEffect(() => {
     if (data) {
       setGames(

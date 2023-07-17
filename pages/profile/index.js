@@ -12,7 +12,7 @@ export default function ProfilePage({
   amountOfWishlistGames,
 }) {
   const [imageSrc, setImageSrc] = useState();
-
+  /* 
   function handleFileChange(event) {
     const reader = new FileReader();
     reader.onload = function (event2) {
@@ -20,7 +20,7 @@ export default function ProfilePage({
       setImageSrc(imageSrc);
     };
     reader.readAsDataURL(event.target.files[0]);
-  }
+  } */
   return (
     <>
       <Header HeaderText={"My Profile"} />

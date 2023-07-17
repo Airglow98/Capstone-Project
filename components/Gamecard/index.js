@@ -7,14 +7,15 @@ import DetailsPageLink from "../DetailsPageLink";
 import { StyledDiv } from "./Gamecard.styled";
 
 export default function Gamecard({
-  games,
   onToggleLibraryClick,
   onToggleWishlistClick,
+  filterGames,
 }) {
+  console.log(filterGames);
   return (
     <>
       <ul>
-        {games.map((game) => (
+        {filterGames.map((game) => (
           <StyledGameCard key={game.id}>
             <Link href={`/games/${game.id}`}>
               <h3>{game.title}</h3>

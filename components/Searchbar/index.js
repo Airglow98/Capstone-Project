@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function Searchbar({ games, setGames }) {
+export default function Searchbar({ games, filterGames, setFilterGames }) {
   const [gamesNotFound, setGamesNotFound] = useState(false);
   const [searchGames, setSearchGames] = useState("");
 
@@ -9,13 +9,17 @@ export default function Searchbar({ games, setGames }) {
     const query = event.target.value;
     setSearchGames(query);
 
-    const filteredGames = games.filter((game) =>
-      game.title.toLowerCase().includes(query.toLowerCase())
+    setFilterGames(
+      games.filter((game) =>
+        game.title.toLowerCase().includes(query.toLowerCase())
+      )
     );
-    setGames(filteredGames);
-    setGamesNotFound(filteredGames.length === 0);
+    if (filterGames.length === 0) {
+      setGamesNotFound(true);
+    } else {
+      setGamesNotFound(false);
+    }
   }
-
   return (
     <>
       <StyledForm>
