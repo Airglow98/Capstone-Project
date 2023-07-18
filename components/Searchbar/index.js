@@ -1,22 +1,26 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function Searchbar({ games, setGames }) {
-  const [gamesNotFound, setGamesNotFound] = useState();
+export default function Searchbar({ games, filterGames, onHandleFilterGames }) {
+  const [gamesNotFound, setGamesNotFound] = useState(false);
+  const [searchGames, setSearchGames] = useState("");
+
   function handleOnChange(event) {
-    const formData = new FormData(event.target.form);
-    const data = Object.fromEntries(formData);
+    const query = event.target.value;
+    setSearchGames(query);
+
     const filteredGames = games.filter((game) =>
-      game.title.toLowerCase().includes(data.searchbar.toLowerCase())
+      game.title.toLowerCase().includes(query.toLowerCase())
     );
-    setGames(filteredGames);
-    if (filteredGames.length === 0) {
+
+    onHandleFilterGames(filteredGames);
+
+    if (filterGames.length === 0) {
       setGamesNotFound(true);
     } else {
       setGamesNotFound(false);
     }
   }
-
   return (
     <>
       <StyledForm>
@@ -26,6 +30,7 @@ export default function Searchbar({ games, setGames }) {
           id="searchbar"
           name="searchbar"
           onChange={handleOnChange}
+          value={searchGames}
         />
         <StyledSvg
           xmlns="http://www.w3.org/2000/svg"
