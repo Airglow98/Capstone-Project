@@ -15,7 +15,7 @@ export default createGlobalStyle`
   }
 
   html {
-    background-image: linear-gradient(120deg, #4698b1 0%, #09f0b6 100%);
+    background-image: linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%);
   }
 
   `;

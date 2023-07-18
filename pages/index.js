@@ -6,7 +6,6 @@ import styled from "styled-components";
 import Link from "next/link";
 import ToggleLibraryStateButton from "../components/ToggleLibraryStateButton";
 import ToggleWishlistStateButton from "../components/ToggleWishlistStateButton";
-import { StyledDiv } from "./games/[id]";
 
 export default function Spotlight({
   onToggleLibraryClick,

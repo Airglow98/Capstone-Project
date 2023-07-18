@@ -2,6 +2,8 @@ import GlobalStyle from "../styles";
 import useSWR from "swr";
 import { useState, useEffect } from "react";
 import { SWRConfig } from "swr";
+import { useRef } from "react";
+import lottie from "lottie-web";
 
 async function fetcher(...args) {
   try {
@@ -17,6 +19,8 @@ async function fetcher(...args) {
 export default function App({ Component, pageProps }) {
   const { data, error, isLoading, mutate } = useSWR("/api/games", fetcher);
   const [games, setGames] = useState([]);
+  const container = useRef(null);
+
   useEffect(() => {
     if (data) {
       setGames(
@@ -27,8 +31,22 @@ export default function App({ Component, pageProps }) {
     }
   }, [data]);
 
+  useEffect(() => {
+    lottie.loadAnimation({
+      container: container.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: require("../public/loading.json"),
+    });
+  }, []);
+
   if (isLoading) {
-    return <h2>loading...</h2>;
+    return (
+      <>
+        <div ref={container}></div>
+      </>
+    );
   }
 
   function toggleIsLibrary(id) {
