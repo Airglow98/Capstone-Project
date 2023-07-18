@@ -9,11 +9,13 @@ export default function Homepage({
   onToggleLibraryClick,
   onToggleWishlistClick,
   setGames,
-  data,
 }) {
-  const [filterGames, setFilterGames] = useState(data);
-  console.log(data);
-  console.log(filterGames);
+  const [filterGames, setFilterGames] = useState(games);
+
+  function onHandleFilterGames(filteredGames) {
+    setFilterGames(filteredGames);
+  }
+
   return (
     <>
       <Header HeaderText={"Games"} />
@@ -21,7 +23,7 @@ export default function Homepage({
         games={games}
         setGames={setGames}
         filterGames={filterGames}
-        setFilterGames={setFilterGames}
+        onHandleFilterGames={onHandleFilterGames}
       />
       <Gamecard
         games={games}

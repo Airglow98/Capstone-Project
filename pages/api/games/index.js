@@ -5,7 +5,7 @@ export default async function handler(request, response) {
   await dbConnect();
 
   if (request.method === "GET") {
-    const dbGames = await Game.find();
+    const dbGames = await Game.find({});
     return response.status(200).json(dbGames);
   } else if (request.method === "PUT") {
     try {
