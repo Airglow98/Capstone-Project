@@ -95,6 +95,7 @@ const SpotlightCard = styled.div`
   align-items: center;
   background-image: linear-gradient(to bottom, #d66f98 0%, #ec8c69 100%);
   border-radius: 7%;
+  z-index: 2;
 `;
 
 const StyledImage = styled(Image)`
@@ -104,4 +105,5 @@ const StyledImage = styled(Image)`
 
 const StyledBackground = styled.div`
   height: 80vh;
+  z-index: 1;
 `;
