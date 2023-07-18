@@ -6,6 +6,8 @@ import styled from "styled-components";
 import Link from "next/link";
 import ToggleLibraryStateButton from "../components/ToggleLibraryStateButton";
 import ToggleWishlistStateButton from "../components/ToggleWishlistStateButton";
+import { useRef } from "react";
+import lottie from "lottie-web";
 
 export default function Spotlight({
   onToggleLibraryClick,
@@ -15,6 +17,17 @@ export default function Spotlight({
 }) {
   const [randomGameIndex, setRandomGameIndex] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const container = useRef(null);
+
+  useEffect(() => {
+    lottie.loadAnimation({
+      container: container.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: require("../public/newbackground.json"),
+    });
+  }, []);
 
   useEffect(() => {
     if (games && games.length > 0 && !isLoaded) {
@@ -43,37 +56,37 @@ export default function Spotlight({
       {randomGame && isLoaded ? (
         <>
           <Header HeaderText={"Spotlight"} />
-          <StyledBackground>
-            <SpotlightCard>
-              <h3>{randomGame.title}</h3>
-              <StyledImage
-                src={randomGame.imgpath}
-                alt={randomGame.title}
-                width={250}
-                height={100}
+          <StyledBackground ref={container} />
+          <SpotlightCard>
+            <h3>{randomGame.title}</h3>
+            <StyledImage
+              src={randomGame.imgpath}
+              alt={randomGame.title}
+              width={250}
+              height={100}
+            />
+            <p>Platform: {randomGame.platform}</p>
+            <p>Crossplay:{randomGame.crossplay}</p>
+            <p>Achievements: {randomGame.achievements}</p>
+            <p>Metacritic:{randomGame.metacritic}</p>
+            <div>
+              <Link href={`/games/${randomGame.id}`}>More Details</Link>
+              <ToggleLibraryStateButton
+                isLibrary={randomGame.isLibrary}
+                onClick={() => onToggleLibraryClick(randomGame.id)}
               />
-              <p>Platform: {randomGame.platform}</p>
-              <p>Crossplay:{randomGame.crossplay}</p>
-              <p>Achievements: {randomGame.achievements}</p>
-              <p>Metacritic:{randomGame.metacritic}</p>
-              <div>
-                <Link href={`/games/${randomGame.id}`}>More Details</Link>
-                <ToggleLibraryStateButton
-                  isLibrary={randomGame.isLibrary}
-                  onClick={() => onToggleLibraryClick(randomGame.id)}
-                />
-                <ToggleWishlistStateButton
-                  isWishlist={randomGame.isWishlist}
-                  onClick={() => onToggleWishlistClick(randomGame.id)}
-                />
-              </div>
-            </SpotlightCard>
-          </StyledBackground>
+              <ToggleWishlistStateButton
+                isWishlist={randomGame.isWishlist}
+                onClick={() => onToggleWishlistClick(randomGame.id)}
+              />
+            </div>
+          </SpotlightCard>
           <NavBar />
         </>
       ) : (
         <>
           <Header HeaderText={"Spotlight"} />
+          <StyledBackground ref={container} />
           <SpotlightCard>
             <p>Loading...</p>
           </SpotlightCard>
@@ -95,7 +108,6 @@ const SpotlightCard = styled.div`
   align-items: center;
   background-image: linear-gradient(to bottom, #d66f98 0%, #ec8c69 100%);
   border-radius: 7%;
-  z-index: 2;
 `;
 
 const StyledImage = styled(Image)`
@@ -104,6 +116,10 @@ const StyledImage = styled(Image)`
 `;
 
 const StyledBackground = styled.div`
-  height: 80vh;
-  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
 `;
