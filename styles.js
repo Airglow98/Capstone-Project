@@ -1,11 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
 
   :root{
     --primary-color: #ff8902;
@@ -17,6 +12,10 @@ export default createGlobalStyle`
   body {
     margin: 0;
     font-family: system-ui;
-    background-color: var(--tertiary-color);
   }
-`;
+
+  html {
+    background-image: linear-gradient(120deg, #4698b1 0%, #09f0b6 100%);
+  }
+
+  `;

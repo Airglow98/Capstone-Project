@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import ToggleLibraryStateButton from "../components/ToggleLibraryStateButton";
 import ToggleWishlistStateButton from "../components/ToggleWishlistStateButton";
+import { StyledDiv } from "./games/[id]";
 
 export default function Spotlight({
   onToggleLibraryClick,
@@ -43,30 +44,32 @@ export default function Spotlight({
       {randomGame && isLoaded ? (
         <>
           <Header HeaderText={"Spotlight"} />
-          <SpotlightCard>
-            <h3>{randomGame.title}</h3>
-            <StyledImage
-              src={randomGame.imgpath}
-              alt={randomGame.title}
-              width={250}
-              height={100}
-            />
-            <p>Platform: {randomGame.platform}</p>
-            <p>Crossplay:{randomGame.crossplay}</p>
-            <p>Achievements: {randomGame.achievements}</p>
-            <p>Metacritic:{randomGame.metacritic}</p>
-            <div>
-              <Link href={`/games/${randomGame.id}`}>More Details</Link>
-              <ToggleLibraryStateButton
-                isLibrary={randomGame.isLibrary}
-                onClick={() => onToggleLibraryClick(randomGame.id)}
+          <StyledBackground>
+            <SpotlightCard>
+              <h3>{randomGame.title}</h3>
+              <StyledImage
+                src={randomGame.imgpath}
+                alt={randomGame.title}
+                width={250}
+                height={100}
               />
-              <ToggleWishlistStateButton
-                isWishlist={randomGame.isWishlist}
-                onClick={() => onToggleWishlistClick(randomGame.id)}
-              />
-            </div>
-          </SpotlightCard>
+              <p>Platform: {randomGame.platform}</p>
+              <p>Crossplay:{randomGame.crossplay}</p>
+              <p>Achievements: {randomGame.achievements}</p>
+              <p>Metacritic:{randomGame.metacritic}</p>
+              <div>
+                <Link href={`/games/${randomGame.id}`}>More Details</Link>
+                <ToggleLibraryStateButton
+                  isLibrary={randomGame.isLibrary}
+                  onClick={() => onToggleLibraryClick(randomGame.id)}
+                />
+                <ToggleWishlistStateButton
+                  isWishlist={randomGame.isWishlist}
+                  onClick={() => onToggleWishlistClick(randomGame.id)}
+                />
+              </div>
+            </SpotlightCard>
+          </StyledBackground>
           <NavBar />
         </>
       ) : (
@@ -83,7 +86,7 @@ export default function Spotlight({
 }
 
 const SpotlightCard = styled.div`
-  border: 3px solid black;
+  border: 5px groove #cb67ae;
   height: 75vh;
   width: 80vw;
   margin-top: 15vh;
@@ -91,11 +94,15 @@ const SpotlightCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--quaternary-color);
+  background-image: linear-gradient(to bottom, #d66f98 0%, #ec8c69 100%);
   border-radius: 7%;
 `;
 
 const StyledImage = styled(Image)`
   height: auto;
   border-radius: 7%;
+`;
+
+const StyledBackground = styled.div`
+  height: 80vh;
 `;

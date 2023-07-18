@@ -1,6 +1,5 @@
 import Header from "../../components/Header/index";
 import WishlistLink from "../../components/WishlistButton";
-import { useState } from "react";
 import styled from "styled-components";
 import NavBar from "../../components/NavBar/index";
 import LibraryLink from "../../components/LibraryLink";
@@ -11,42 +10,34 @@ export default function ProfilePage({
   amountOfLibraryGames,
   amountOfWishlistGames,
 }) {
-  const [imageSrc, setImageSrc] = useState();
-  /* 
-  function handleFileChange(event) {
-    const reader = new FileReader();
-    reader.onload = function (event2) {
-      const imageSrc = event2.target.result;
-      setImageSrc(imageSrc);
-    };
-    reader.readAsDataURL(event.target.files[0]);
-  } */
   return (
     <>
       <Header HeaderText={"My Profile"} />
-      <StyledDiv>
-        <StyledImage
-          src={
-            "http://res.cloudinary.com/da0yuort3/image/upload/v1689343619/46dcf2521d59b62f3aab2e700.png"
-          }
-          alt={"profile image"}
-          width={150}
-          height={150}
-        />
-      </StyledDiv>
-      <StyledDiv2>
-        <p>Owned Games: {amountOfLibraryGames}</p>
-        <p> Wishlist: {amountOfWishlistGames}</p>
-      </StyledDiv2>
-      <StyledFlexBox>
-        <LibraryLink />
-        <WishlistLink />
-      </StyledFlexBox>
-      <StyledProfileHeader>
-        <StyledUpload>
-          <ImageUploadForm />
-        </StyledUpload>
-      </StyledProfileHeader>
+      <StyledBackground>
+        <StyledDiv>
+          <StyledImage
+            src={
+              "http://res.cloudinary.com/da0yuort3/image/upload/v1689343619/46dcf2521d59b62f3aab2e700.png"
+            }
+            alt={"profile image"}
+            width={150}
+            height={150}
+          />
+        </StyledDiv>
+        <StyledDiv2>
+          <p>Owned Games: {amountOfLibraryGames}</p>
+          <p> Wishlist: {amountOfWishlistGames}</p>
+        </StyledDiv2>
+        <StyledFlexBox>
+          <LibraryLink />
+          <WishlistLink />
+        </StyledFlexBox>
+        <StyledProfileHeader>
+          <StyledUpload>
+            <ImageUploadForm />
+          </StyledUpload>
+        </StyledProfileHeader>
+      </StyledBackground>
       <NavBar />
     </>
   );
@@ -85,4 +76,8 @@ const StyledImage = styled(Image)`
 const StyledDiv2 = styled.div`
   margin-left: 14vw;
   margin-bottom: 5vh;
+`;
+
+const StyledBackground = styled.div`
+  height: 80vh;
 `;

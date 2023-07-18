@@ -12,5 +12,5 @@ export default function ProfileButton() {
 const StyledProfileButton = styled.button`
   width: 34vw;
   height: 100%;
-  background-color: var(--secondary-color);
+  background-image: linear-gradient(to right, #d99177 0%, #ec8c69 100%);
 `;

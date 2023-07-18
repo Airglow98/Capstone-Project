@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 export const StyledGameCard = styled.li`
   text-align: center;
-  border: 5px groove orange;
+  border: 5px groove #cb67ae;
   border-radius: 5%;
-  background-color: var(--quaternary-color);
+  background-image: linear-gradient(to bottom, #d66f98 0%, #ec8c69 100%);
   margin-bottom: 5vh;
   margin-right: 10vw;
   width: 80vw;

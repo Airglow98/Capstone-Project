@@ -14,5 +14,5 @@ export default function SpotlightButton() {
 const StyledSpotlightButton = styled.button`
   width: 33vw;
   height: 100%;
-  background-color: var(--secondary-color);
+  background-image: linear-gradient(to right, #d66f98 0%, #dd82a6 100%);
 `;

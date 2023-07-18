@@ -15,7 +15,7 @@ export default function GameDetailPage({ games }) {
     <>
       {game ? (
         <>
-          <StyledDiv>
+          <StyledBackground>
             <StyledHeader>
               <GamesBackwardButton />
               {game.title}
@@ -27,7 +27,7 @@ export default function GameDetailPage({ games }) {
               height={100}
             />
             <GameInformation game={game} />
-          </StyledDiv>
+          </StyledBackground>
         </>
       ) : (
         <p>Cannot find this game</p>
@@ -36,6 +36,7 @@ export default function GameDetailPage({ games }) {
   );
 }
 
-export const StyledDiv = styled.div`
+export const StyledBackground = styled.div`
   margin-top: 15vh;
+  height: 100vh;
 `;

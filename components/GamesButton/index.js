@@ -12,5 +12,5 @@ export default function GamesButton() {
 const StyledGamesButton = styled.button`
   width: 33vw;
   height: 100%;
-  background-color: var(--secondary-color);
+  background-image: linear-gradient(to right, #dd77a0 0%, #d99177 100%);
 `;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.h2`
   border: 5px solid black;
-  background-color: var(--primary-color);
+  background-image: linear-gradient(60deg, #d66f98 0%, #ec8c69 100%);
   display: flex;
   align-items: center;
   justify-content: center;
