@@ -41,7 +41,7 @@ export default function Spotlight({
   if (error) {
     return (
       <>
-        <Header HeaderText={"Spotlight"} />
+        <Header HeaderText={"Gamer's Haven"} />
         <SpotlightCard>
           <p>Error loading games</p>
         </SpotlightCard>
@@ -54,7 +54,7 @@ export default function Spotlight({
     <>
       {randomGame && isLoaded ? (
         <>
-          <Header HeaderText={"Spotlight"} />
+          <Header HeaderText={"Gamer's Haven"} />
           <StyledBackground ref={container} />
           <SpotlightCard>
             <StyledText>
