@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { StyledToggleLibraryStateButton } from "./ToggleLibraryStateButton.styled";
 
 export default function ToggleLibraryStateButton({ onClick, isLibrary }) {
   return (
@@ -7,10 +7,3 @@ export default function ToggleLibraryStateButton({ onClick, isLibrary }) {
     </StyledToggleLibraryStateButton>
   );
 }
-
-const StyledToggleLibraryStateButton = styled.button`
-  background-color: ${({ isLibrary }) => (isLibrary ? "green" : "white")};
-  height: 5vh;
-  width: 20vw;
-  border-radius: 25%;
-`;

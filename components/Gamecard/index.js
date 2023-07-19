@@ -1,10 +1,7 @@
-import { StyledGameCard } from "./Gamecard.styled";
-import { StyledImage } from "./Gamecard.styled";
+import { StyledGameCard, StyledImage, StyledDiv } from "./Gamecard.styled";
 import Link from "next/link";
 import ToggleLibraryStateButton from "../ToggleLibraryStateButton";
 import ToggleWishlistStateButton from "../ToggleWishlistStateButton";
-import DetailsPageLink from "../DetailsPageLink";
-import { StyledDiv } from "./Gamecard.styled";
 
 export default function Gamecard({
   onToggleLibraryClick,
@@ -29,7 +26,7 @@ export default function Gamecard({
                 {console.log(games[0].isLibrary)}
               </Link>
               <StyledDiv>
-                <DetailsPageLink game={game} />
+                <Link href={`/games/${game.id}`}>More Details</Link>
                 <ToggleLibraryStateButton
                   isLibrary={game.isLibrary}
                   onClick={() => onToggleLibraryClick(game.id)}
@@ -60,7 +57,7 @@ export default function Gamecard({
                 />
               </Link>
               <StyledDiv>
-                <DetailsPageLink game={game} />
+                <Link href={`/games/${game.id}`}>More Details</Link>
                 <ToggleLibraryStateButton
                   isLibrary={game.isLibrary}
                   onClick={() => onToggleLibraryClick(game.id)}

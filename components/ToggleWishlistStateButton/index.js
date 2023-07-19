@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { StyledToggleWishlistStateButton } from "./ToggleWishlistStateButton.styled";
 
 export default function ToggleWishlistStateButton({ onClick, isWishlist }) {
   return (
@@ -12,10 +12,3 @@ export default function ToggleWishlistStateButton({ onClick, isWishlist }) {
     </>
   );
 }
-
-const StyledToggleWishlistStateButton = styled.button`
-  background-color: ${(props) => (props.isWishlist ? "green" : "white")};
-  height: 5vh;
-  width: 20vw;
-  border-radius: 25%;
-`;

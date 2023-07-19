@@ -1,13 +1,11 @@
 import Header from "../../components/Header/index";
-import WishlistLink from "../../components/WishlistButton";
 import styled from "styled-components";
 import NavBar from "../../components/NavBar/index";
-import LibraryLink from "../../components/LibraryLink";
+import Link from "next/link";
 import ImageUploadForm from "../../components/ImageUploadForm";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import lottie from "lottie-web";
-import { useEffect } from "react";
 
 export default function ProfilePage({
   amountOfLibraryGames,
@@ -44,8 +42,8 @@ export default function ProfilePage({
         <p> Wishlist: {amountOfWishlistGames}</p>
       </StyledDiv2>
       <StyledFlexBox>
-        <LibraryLink />
-        <WishlistLink />
+        <Link href={`/profile/library`}>My Library</Link>
+        <Link href={`/profile/wishlist`}>My Wishlist</Link>
       </StyledFlexBox>
       <StyledProfileHeader>
         <StyledUpload>

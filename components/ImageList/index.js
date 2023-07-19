@@ -56,3 +56,5 @@ const StyledImage = styled(Image)`
   border-radius: 0.5rem;
   border-color: aliceblue;
 `;
+
+//wird vorerst nicht genutzt

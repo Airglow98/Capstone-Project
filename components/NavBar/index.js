@@ -1,7 +1,7 @@
 import GamesButton from "../GamesButton";
 import ProfileButton from "../ProfileButton";
-import styled from "styled-components";
 import SpotlightButton from "../SpotlightButton";
+import { StyledNav } from "./NavBar.styled";
 
 export default function NavBar() {
   return (
@@ -12,11 +12,3 @@ export default function NavBar() {
     </StyledNav>
   );
 }
-
-const StyledNav = styled.nav`
-  position: fixed;
-  bottom: 0;
-  z-index: 2;
-  width: 100vw;
-  height: 5vh;
-`;
