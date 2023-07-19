@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
 import { StyledHeader } from "../../components/Header/Header.styled";
-import { StyledImage } from "../../components/Gamecard/Gamecard.styled";
 import GamesBackwardButton from "../../components/GamesBackwardButton";
 import GameInformation from "../../components/GameInformation";
 import styled from "styled-components";
 import { useRef } from "react";
 import lottie from "lottie-web";
 import { useEffect } from "react";
+import Image from "next/image";
 
 export default function GameDetailPage({ games }) {
   const router = useRouter();
@@ -56,11 +56,17 @@ export const StyledBackground = styled.div`
 `;
 
 const StyledBackground2 = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
   z-index: -1;
-  overflow: hidden;
+`;
+
+const StyledImage = styled(Image)`
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-left: 15vw;
 `;

@@ -94,11 +94,10 @@ const StyledDiv2 = styled.div`
 `;
 
 const StyledBackground = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
   z-index: -1;
-  overflow: hidden;
 `;
