@@ -2,9 +2,8 @@ import Header from "../../components/Header/index";
 import Gamecard from "../../components/Gamecard/index";
 import NavBar from "../../components/NavBar/index";
 import Searchbar from "../../components/Searchbar";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import lottie from "lottie-web";
-import { useEffect } from "react";
 import styled from "styled-components";
 
 export default function Homepage({

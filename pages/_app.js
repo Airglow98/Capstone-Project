@@ -1,8 +1,6 @@
 import GlobalStyle from "../styles";
-import useSWR from "swr";
-import { useState, useEffect } from "react";
-import { SWRConfig } from "swr";
-import { useRef } from "react";
+import useSWR, { SWRConfig } from "swr";
+import { useState, useEffect, useRef } from "react";
 import lottie from "lottie-web";
 
 async function fetcher(...args) {

@@ -3,9 +3,8 @@ import { StyledHeader } from "../../components/Header/Header.styled";
 import GamesBackwardButton from "../../components/GamesBackwardButton";
 import GameInformation from "../../components/GameInformation";
 import styled from "styled-components";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import lottie from "lottie-web";
-import { useEffect } from "react";
 import Image from "next/image";
 
 export default function GameDetailPage({ games }) {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import Image from "next/image";
@@ -6,7 +6,6 @@ import styled from "styled-components";
 import Link from "next/link";
 import ToggleLibraryStateButton from "../components/ToggleLibraryStateButton";
 import ToggleWishlistStateButton from "../components/ToggleWishlistStateButton";
-import { useRef } from "react";
 import lottie from "lottie-web";
 
 export default function Spotlight({
