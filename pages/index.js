@@ -57,18 +57,22 @@ export default function Spotlight({
           <Header HeaderText={"Spotlight"} />
           <StyledBackground ref={container} />
           <SpotlightCard>
-            <h3>{randomGame.title}</h3>
+            <StyledText>
+              <h3>{randomGame.title}</h3>
+            </StyledText>
             <StyledImage
               src={randomGame.imgpath}
               alt={randomGame.title}
               width={250}
               height={100}
             />
-            <p>Platform: {randomGame.platform}</p>
-            <p>Crossplay:{randomGame.crossplay}</p>
-            <p>Achievements: {randomGame.achievements}</p>
-            <p>Metacritic:{randomGame.metacritic}</p>
-            <div>
+            <StyledText>
+              <p>Platform: {randomGame.platform}</p>
+              <p>Crossplay:{randomGame.crossplay}</p>
+              <p>Achievements: {randomGame.achievements}</p>
+              <p>Metacritic:{randomGame.metacritic}</p>
+            </StyledText>
+            <StyledFlexbox>
               <Link href={`/games/${randomGame.id}`}>More Details</Link>
               <ToggleLibraryStateButton
                 isLibrary={randomGame.isLibrary}
@@ -78,7 +82,7 @@ export default function Spotlight({
                 isWishlist={randomGame.isWishlist}
                 onClick={() => onToggleWishlistClick(randomGame.id)}
               />
-            </div>
+            </StyledFlexbox>
           </SpotlightCard>
           <NavBar />
         </>
@@ -121,4 +125,22 @@ const StyledBackground = styled.div`
   width: 100%;
   height: 100%;
   z-index: -1;
+`;
+
+const StyledFlexbox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: 0.3em;
+`;
+
+const StyledText = styled.text`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
 `;

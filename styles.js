@@ -2,12 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
 
-  :root{
-    --primary-color: #ff8902;
-    --secondary-color: #efbf80;
-    --tertiary-color: #ecd6af;
-    --quaternary-color: #efb05f;
-  }
+
 
   body {
     margin: 0;

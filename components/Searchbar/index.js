@@ -31,6 +31,7 @@ export default function Searchbar({ games, filterGames, onHandleFilterGames }) {
           name="searchbar"
           onChange={handleOnChange}
           value={searchGames}
+          autoComplete="off"
         />
         <StyledSvg
           xmlns="http://www.w3.org/2000/svg"

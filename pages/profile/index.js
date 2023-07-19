@@ -30,11 +30,11 @@ export default function ProfilePage({
       <StyledDiv>
         <StyledImage
           src={
-            "http://res.cloudinary.com/da0yuort3/image/upload/v1689343619/46dcf2521d59b62f3aab2e700.png"
+            "http://res.cloudinary.com/da0yuort3/image/upload/v1689343619/d073e9e5802ff1209e321ee01.png"
           }
           alt={"profile image"}
           width={150}
-          height={150}
+          height={200}
         />
       </StyledDiv>
       <StyledDiv2>

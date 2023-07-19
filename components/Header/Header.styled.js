@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.h2`
-  border: 5px solid black;
+  border: 5px solid #9e67cb;
+  border-left: none;
+  border-top: none;
   background-image: linear-gradient(60deg, #d66f98 0%, #ec8c69 100%);
   display: flex;
   align-items: center;
