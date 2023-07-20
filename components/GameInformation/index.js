@@ -1,7 +1,9 @@
+import { StyledList } from "./GameInformaton.styled";
+
 export default function GameInformation({ game }) {
   return (
     <>
-      <ul>
+      <StyledList>
         <li>Release: {game.release}</li>
         <li>Publisher: {game.publisher}</li>
         <li>Developer: {game.developer}</li>
@@ -10,7 +12,7 @@ export default function GameInformation({ game }) {
         <li>Category: {game.category}</li>
         <li>Metacritic: {game.metacritic}</li>
         <li>Achievements: {game.achievements}</li>
-      </ul>
+      </StyledList>
     </>
   );
 }

@@ -1,5 +1,4 @@
-import Link from "next/link";
-import styled from "styled-components";
+import { StyledLink, StyledParagraph } from "./GamesBackwardButton.styled";
 
 export default function GamesBackwardButton() {
   return (
@@ -10,13 +9,3 @@ export default function GamesBackwardButton() {
     </>
   );
 }
-
-const StyledParagraph = styled.p`
-  color: black;
-  border: black solid 3px;
-  border-radius: 50%;
-`;
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-`;

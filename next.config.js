@@ -5,7 +5,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    domains: ["fs-prod-cdn.nintendo-europe.com", "res.cloudinary.com"],
+    domains: ["res.cloudinary.com"],
   },
   webpack(config) {
     config.module.rules.push({

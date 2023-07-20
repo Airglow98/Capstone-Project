@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { StyledGamesButton } from "./GamesButton.styled";
 import Link from "next/link";
 
 export default function GamesButton() {
@@ -8,9 +8,3 @@ export default function GamesButton() {
     </Link>
   );
 }
-
-const StyledGamesButton = styled.button`
-  width: 33vw;
-  height: 100%;
-  background-color: var(--secondary-color);
-`;

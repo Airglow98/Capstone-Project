@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { StyledProfileButton } from "./ProfileButton.styled";
 import Link from "next/link";
 
 export default function ProfileButton() {
@@ -8,9 +8,3 @@ export default function ProfileButton() {
     </Link>
   );
 }
-
-const StyledProfileButton = styled.button`
-  width: 34vw;
-  height: 100%;
-  background-color: var(--secondary-color);
-`;

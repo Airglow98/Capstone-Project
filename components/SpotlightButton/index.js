@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { StyledSpotlightButton } from "./SpotlightButton.styled";
 import Link from "next/link";
 
 export default function SpotlightButton() {
@@ -10,9 +10,3 @@ export default function SpotlightButton() {
     </>
   );
 }
-
-const StyledSpotlightButton = styled.button`
-  width: 33vw;
-  height: 100%;
-  background-color: var(--secondary-color);
-`;

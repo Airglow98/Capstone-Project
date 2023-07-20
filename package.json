@@ -15,6 +15,7 @@
     "eslint-config-next": "13.3.0",
     "formidable": "^2.0.1",
     "localstorage": "^1.0.1",
+    "lottie-web": "^5.12.2",
     "mongoose": "^7.3.1",
     "moongoose": "^0.0.5",
     "next": "13.3.0",

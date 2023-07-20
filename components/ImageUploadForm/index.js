@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import { Form, StyledButton } from "./ImageUploadForm.styled";
 // we are using useSWR to mutate the data once a file has been uploaded
 import useSWR from "swr";
-function ImageUploadForm() {
+export default function ImageUploadForm() {
   const { mutate } = useSWR("/api/images");
   // We define some states to give some feedback to the user what happened to our upload
   const [uploadStatus, setUploadStatus] = useState("");
   const [error, setError] = useState(undefined);
-  // a kind of 'standard' form handler
+
   async function submitImage(event) {
     event.preventDefault();
     setUploadStatus("Uploading...");
@@ -43,14 +43,3 @@ function ImageUploadForm() {
     </>
   );
 }
-const Form = styled.form`
-  margin: 2rem auto;
-`;
-const StyledButton = styled.button`
-  background-color: green;
-  margin-top: 0.5rem;
-  border-radius: 0.5rem;
-  padding: 0.25rem 1rem;
-  color: white;
-`;
-export default ImageUploadForm;

@@ -1,37 +1,40 @@
 import Header from "../../components/Header/index";
-import WishlistLink from "../../components/WishlistButton";
-import { useState } from "react";
 import styled from "styled-components";
 import NavBar from "../../components/NavBar/index";
-import LibraryLink from "../../components/LibraryLink";
+import Link from "next/link";
 import ImageUploadForm from "../../components/ImageUploadForm";
 import Image from "next/image";
+import { useRef, useEffect } from "react";
+import lottie from "lottie-web";
 
 export default function ProfilePage({
   amountOfLibraryGames,
   amountOfWishlistGames,
 }) {
-  const [imageSrc, setImageSrc] = useState();
-  /* 
-  function handleFileChange(event) {
-    const reader = new FileReader();
-    reader.onload = function (event2) {
-      const imageSrc = event2.target.result;
-      setImageSrc(imageSrc);
-    };
-    reader.readAsDataURL(event.target.files[0]);
-  } */
+  const container = useRef(null);
+
+  useEffect(() => {
+    lottie.loadAnimation({
+      container: container.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: require("../../public/newbackground.json"),
+    });
+  }, []);
+
   return (
     <>
       <Header HeaderText={"My Profile"} />
+      <StyledBackground ref={container} />
       <StyledDiv>
         <StyledImage
           src={
-            "http://res.cloudinary.com/da0yuort3/image/upload/v1689343619/46dcf2521d59b62f3aab2e700.png"
+            "http://res.cloudinary.com/da0yuort3/image/upload/v1689343619/d073e9e5802ff1209e321ee01.png"
           }
           alt={"profile image"}
           width={150}
-          height={150}
+          height={200}
         />
       </StyledDiv>
       <StyledDiv2>
@@ -39,14 +42,15 @@ export default function ProfilePage({
         <p> Wishlist: {amountOfWishlistGames}</p>
       </StyledDiv2>
       <StyledFlexBox>
-        <LibraryLink />
-        <WishlistLink />
+        <Link href={`/profile/library`}>My Library</Link>
+        <Link href={`/profile/wishlist`}>My Wishlist</Link>
       </StyledFlexBox>
       <StyledProfileHeader>
         <StyledUpload>
           <ImageUploadForm />
         </StyledUpload>
       </StyledProfileHeader>
+
       <NavBar />
     </>
   );
@@ -85,4 +89,13 @@ const StyledImage = styled(Image)`
 const StyledDiv2 = styled.div`
   margin-left: 14vw;
   margin-bottom: 5vh;
+`;
+
+const StyledBackground = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
 `;

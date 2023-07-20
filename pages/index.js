@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import Image from "next/image";
@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import ToggleLibraryStateButton from "../components/ToggleLibraryStateButton";
 import ToggleWishlistStateButton from "../components/ToggleWishlistStateButton";
+import lottie from "lottie-web";
 
 export default function Spotlight({
   onToggleLibraryClick,
@@ -15,6 +16,17 @@ export default function Spotlight({
 }) {
   const [randomGameIndex, setRandomGameIndex] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const container = useRef(null);
+
+  useEffect(() => {
+    lottie.loadAnimation({
+      container: container.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: require("../public/newbackground.json"),
+    });
+  }, []);
 
   useEffect(() => {
     if (games && games.length > 0 && !isLoaded) {
@@ -29,7 +41,7 @@ export default function Spotlight({
   if (error) {
     return (
       <>
-        <Header HeaderText={"Spotlight"} />
+        <Header HeaderText={"Gamer's Haven"} />
         <SpotlightCard>
           <p>Error loading games</p>
         </SpotlightCard>
@@ -42,20 +54,25 @@ export default function Spotlight({
     <>
       {randomGame && isLoaded ? (
         <>
-          <Header HeaderText={"Spotlight"} />
+          <Header HeaderText={"Gamer's Haven"} />
+          <StyledBackground ref={container} />
           <SpotlightCard>
-            <h3>{randomGame.title}</h3>
+            <StyledText>
+              <h3>{randomGame.title}</h3>
+            </StyledText>
             <StyledImage
               src={randomGame.imgpath}
               alt={randomGame.title}
               width={250}
               height={100}
             />
-            <p>Platform: {randomGame.platform}</p>
-            <p>Crossplay:{randomGame.crossplay}</p>
-            <p>Achievements: {randomGame.achievements}</p>
-            <p>Metacritic:{randomGame.metacritic}</p>
-            <div>
+            <StyledText>
+              <p>Platform: {randomGame.platform}</p>
+              <p>Crossplay:{randomGame.crossplay}</p>
+              <p>Achievements: {randomGame.achievements}</p>
+              <p>Metacritic:{randomGame.metacritic}</p>
+            </StyledText>
+            <StyledFlexbox>
               <Link href={`/games/${randomGame.id}`}>More Details</Link>
               <ToggleLibraryStateButton
                 isLibrary={randomGame.isLibrary}
@@ -65,13 +82,14 @@ export default function Spotlight({
                 isWishlist={randomGame.isWishlist}
                 onClick={() => onToggleWishlistClick(randomGame.id)}
               />
-            </div>
+            </StyledFlexbox>
           </SpotlightCard>
           <NavBar />
         </>
       ) : (
         <>
           <Header HeaderText={"Spotlight"} />
+          <StyledBackground ref={container} />
           <SpotlightCard>
             <p>Loading...</p>
           </SpotlightCard>
@@ -83,7 +101,7 @@ export default function Spotlight({
 }
 
 const SpotlightCard = styled.div`
-  border: 3px solid black;
+  border: 5px groove #cb67ae;
   height: 75vh;
   width: 80vw;
   margin-top: 15vh;
@@ -91,11 +109,38 @@ const SpotlightCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--quaternary-color);
+  background-image: linear-gradient(to bottom, #d66f98 0%, #ec8c69 100%);
   border-radius: 7%;
 `;
 
 const StyledImage = styled(Image)`
   height: auto;
   border-radius: 7%;
+`;
+
+const StyledBackground = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+`;
+
+const StyledFlexbox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: 0.3em;
+`;
+
+const StyledText = styled.text`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
 `;

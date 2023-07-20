@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styled from "styled-components";
+import { StyledForm, StyledInput, StyledSvg } from "./Searchbar.styled";
 
 export default function Searchbar({ games, filterGames, onHandleFilterGames }) {
   const [gamesNotFound, setGamesNotFound] = useState(false);
@@ -31,6 +31,7 @@ export default function Searchbar({ games, filterGames, onHandleFilterGames }) {
           name="searchbar"
           onChange={handleOnChange}
           value={searchGames}
+          autoComplete="off"
         />
         <StyledSvg
           xmlns="http://www.w3.org/2000/svg"
@@ -45,20 +46,3 @@ export default function Searchbar({ games, filterGames, onHandleFilterGames }) {
     </>
   );
 }
-
-export const StyledForm = styled.form`
-  margin-top: 15vh;
-  margin-left: 10vw;
-  margin-bottom: 5vh;
-`;
-
-const StyledInput = styled.input`
-  width: 80vw;
-  position: relative;
-`;
-
-const StyledSvg = styled.svg`
-  position: absolute;
-  border: solid grey 1px;
-  border-radius: 10%;
-`;
